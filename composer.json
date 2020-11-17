@@ -1,0 +1,28 @@
+{
+    "name": "ps/entities",
+    "type": "typo3-cms-extension",
+    "description": "",
+    "authors": [
+        {
+            "name": "Christian Pschorr",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "typo3/cms-core": "^10.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ps\\Entities\\": "Classes"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Ps\\Entities\\Tests\\": "Tests"
+        }
+    },
+    "replace": {
+        "ps/entities": "self.version",
+        "typo3-ter/entities": "self.version"
+    }
+}

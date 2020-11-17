@@ -14,11 +14,9 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="content">
-    <h1>Single View for Entity</h1>
+    <header class="ce-header ce-header--layout-1"><h1>{entity.title}</h1></header>
 
     <f:flashMessages />
     <f:render partial="Entity/Properties" arguments="{entity:entity}" />
-    <f:link.action action="list">Back to list</f:link.action><br />
-    <f:link.action action="new">New Entity</f:link.action>
 </f:section>
 </html>

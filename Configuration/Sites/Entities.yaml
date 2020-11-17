@@ -1,0 +1,23 @@
+routeEnhancers:
+  EnitiesFrontend:
+    type: Extbase
+    limitToPages: [48]
+    extension: Entities
+    plugin: Frontend
+    routes:
+      - { routePath: '/{page}', _controller: 'Entity::list', _arguments: {'page': '@widget_0/currentPage'} }
+      - { routePath: '/{entity}', _controller: 'Entity::show', _arguments: {'entity': 'entity'} }
+    defaultController: 'Entity::list'
+    defaults:
+      page: '0'
+    requirements:
+      page: '\d+'
+    aspects:
+      page:
+        type: StaticRangeMapper
+        start: '1'
+        end: '100'
+      entity:
+        type: PersistedAliasMapper
+        tableName: tx_entities_domain_model_entity
+        routeFieldName: slug

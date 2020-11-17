@@ -15,28 +15,19 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="content">
-    <h1>Listing for Entity</h1>
 
     <f:flashMessages />
 
-    <table  class="tx_entities" >
+    <table  class="table--layout-0" >
         <tr>
             <th><f:translate key="tx_entities_domain_model_entity.title" /></th>
-            <th><f:translate key="tx_entities_domain_model_entity.slug" /></th>
-            <th> </th>
-            <th> </th>
         </tr>
 
         <f:for each="{entities}" as="entity">
             <tr>
-                <td><f:link.action action="show" arguments="{entity : entity}">{entity.title}</f:link.action></td>
-                <td><f:link.action action="show" arguments="{entity : entity}">{entity.slug}</f:link.action></td>
-                <td><f:link.action action="edit" arguments="{entity : entity}">Edit</f:link.action></td>
-                <td><f:link.action action="delete" arguments="{entity : entity}">Delete</f:link.action></td>
+                <td><f:link.action action="show" arguments="{entity: entity}">{entity.title}</f:link.action></td>
             </tr>
         </f:for>
     </table>
-
-    <f:link.action action="new">New Entity</f:link.action>
 </f:section>
 </html>

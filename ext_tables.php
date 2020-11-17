@@ -8,7 +8,7 @@ call_user_func(
         \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
             'Entities',
             'Frontend',
-            'Frontend'
+            'Entities Frontend'
         );
 
 

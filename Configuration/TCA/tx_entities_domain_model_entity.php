@@ -128,9 +128,20 @@ return [
 			'exclude' => true,
 			'label' => 'LLL:EXT:entities/Resources/Private/Language/locallang_db.xlf:tx_entities_domain_model_entity.slug',
 			'config' => [
-				'type' => 'input',
-				'size' => 30,
-				'eval' => 'trim'
+				'type' => 'slug',
+				'generatorOptions' => [
+					'fields' => ['title'],
+					'prefixParentPageSlug' => true,
+					'replacements' => [
+						'/' => '',
+					],
+				],
+//				'appearance' => [
+//					'prefix' => \Vendor\Extension\UserFunctions\FormEngine\SlugPrefix::class . '->getPrefix'
+//				],
+				'fallbackCharacter' => '-',
+				'eval' => 'uniqueInSite',
+				'default' => ''
 			],
 		],
 	],

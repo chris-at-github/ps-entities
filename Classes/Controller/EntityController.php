@@ -4,6 +4,8 @@ declare(strict_types=1);
 namespace Ps\Entities\Controller;
 
 
+use Ps\Entities\Provider\PageTitleProvider;
+
 /***
  *
  * This file is part of the "Entities" Extension for TYPO3 CMS.
@@ -54,6 +56,12 @@ class EntityController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
      */
     public function showAction(\Ps\Entities\Domain\Model\Entity $entity)
     {
+    	$this->setPageTitle($entity->getTitle());
         $this->view->assign('entity', $entity);
     }
+
+    protected function setPageTitle($title) {
+			$titleProvider = $this->objectManager->get(PageTitleProvider::class);
+			$titleProvider->setTitle($title);
+		}
 }

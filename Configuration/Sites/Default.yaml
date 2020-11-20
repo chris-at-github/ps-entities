@@ -19,5 +19,5 @@ routeEnhancers:
         end: '100'
       entity:
         type: PersistedAliasMapper
-        tableName: tx_entities_domain_model_entity
+        tableName: tx_entity_domain_model_entity
         routeFieldName: slug

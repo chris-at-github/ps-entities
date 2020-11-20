@@ -1,8 +1,8 @@
 routeEnhancers:
-  EnitiesFrontend:
+  EntityFrontend:
     type: Extbase
     limitToPages: [48]
-    extension: Entities
+    extension: Entity
     plugin: Frontend
     routes:
       - { routePath: '/{page}', _controller: 'Entity::list', _arguments: {'page': '@widget_0/currentPage'} }

@@ -1,6 +1,6 @@
 #
-# Extension Builder settings for extension entities
-# generated 2020-11-17T22:25:00Z
+# Extension Builder settings for extension entity
+# generated 2020-11-20T23:30:00Z
 #
 # See http://www.yaml.org/spec/1.2/spec.html
 #
@@ -67,7 +67,7 @@ overwriteSettings:
 declareStrictTypes: true
 
 ## use static date attribute in xliff files ##
-#staticDateInXliffFiles: 2020-11-17T22:25:00Z
+#staticDateInXliffFiles: 2020-11-20T23:30:00Z
 
 ## skip docComment (license header) ##
 #skipDocComment

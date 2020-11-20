@@ -6,14 +6,14 @@ call_user_func(
     {
 
         \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-            'Entities',
+            'Entity',
             'Frontend',
             [
-                \Ps\Entities\Controller\EntityController::class => 'list, show'
+                \Ps\Entity\Controller\EntityController::class => 'list, show'
             ],
             // non-cacheable actions
             [
-                \Ps\Entities\Controller\EntityController::class => ''
+                \Ps\Entity\Controller\EntityController::class => ''
             ]
         );
 
@@ -23,12 +23,12 @@ call_user_func(
                 wizards.newContentElement.wizardItems.plugins {
                     elements {
                         frontend {
-                            iconIdentifier = entities-plugin-frontend
-                            title = LLL:EXT:entities/Resources/Private/Language/locallang_db.xlf:tx_entities_frontend.name
-                            description = LLL:EXT:entities/Resources/Private/Language/locallang_db.xlf:tx_entities_frontend.description
+                            iconIdentifier = entity-plugin-frontend
+                            title = LLL:EXT:entity/Resources/Private/Language/locallang_db.xlf:tx_entity_frontend.name
+                            description = LLL:EXT:entity/Resources/Private/Language/locallang_db.xlf:tx_entity_frontend.description
                             tt_content_defValues {
                                 CType = list
-                                list_type = entities_frontend
+                                list_type = entity_frontend
                             }
                         }
                     }
@@ -39,9 +39,9 @@ call_user_func(
 		$iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
 		
 			$iconRegistry->registerIcon(
-				'entities-plugin-frontend',
+				'entity-plugin-frontend',
 				\TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-				['source' => 'EXT:entities/Resources/Public/Icons/user_plugin_frontend.svg']
+				['source' => 'EXT:entity/Resources/Public/Icons/user_plugin_frontend.svg']
 			);
 		
     }

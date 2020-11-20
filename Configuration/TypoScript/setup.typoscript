@@ -1,15 +1,14 @@
-
-plugin.tx_entities_frontend {
+plugin.tx_entity_frontend {
     view {
-        templateRootPaths.0 = EXT:entities/Resources/Private/Templates/
-        templateRootPaths.1 = {$plugin.tx_entities_frontend.view.templateRootPath}
-        partialRootPaths.0 = EXT:entities/Resources/Private/Partials/
-        partialRootPaths.1 = {$plugin.tx_entities_frontend.view.partialRootPath}
-        layoutRootPaths.0 = EXT:entities/Resources/Private/Layouts/
-        layoutRootPaths.1 = {$plugin.tx_entities_frontend.view.layoutRootPath}
+        templateRootPaths.0 = EXT:entity/Resources/Private/Templates/
+        templateRootPaths.1 = {$plugin.tx_entity_frontend.view.templateRootPath}
+        partialRootPaths.0 = EXT:entity/Resources/Private/Partials/
+        partialRootPaths.1 = {$plugin.tx_entity_frontend.view.partialRootPath}
+        layoutRootPaths.0 = EXT:entity/Resources/Private/Layouts/
+        layoutRootPaths.1 = {$plugin.tx_entity_frontend.view.layoutRootPath}
     }
     persistence {
-        storagePid = {$plugin.tx_entities_frontend.persistence.storagePid}
+        storagePid = {$plugin.tx_entity_frontend.persistence.storagePid}
         #recursive = 1
     }
     features {
@@ -21,12 +20,5 @@ plugin.tx_entities_frontend {
     }
     mvc {
         #callDefaultActionIfActionCantBeResolved = 1
-    }
-}
-
-config.pageTitleProviders {
-    entity {
-        provider = Ps\Entities\Provider\PageTitleProvider
-        before = record, seo
     }
 }

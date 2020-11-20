@@ -1,5 +1,5 @@
 {
-    "name": "ps/entities",
+    "name": "ps/entity",
     "type": "typo3-cms-extension",
     "description": "",
     "authors": [
@@ -13,16 +13,16 @@
     },
     "autoload": {
         "psr-4": {
-            "Ps\\Entities\\": "Classes"
+            "Ps\\Entity\\": "Classes"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Ps\\Entities\\Tests\\": "Tests"
+            "Ps\\Entity\\Tests\\": "Tests"
         }
     },
     "replace": {
-        "ps/entities": "self.version",
-        "typo3-ter/entities": "self.version"
+        "ps/entity": "self.version",
+        "typo3-ter/entity": "self.version"
     }
 }

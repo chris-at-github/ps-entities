@@ -1,6 +1,6 @@
 <?php
 
-namespace Ps\Entities\Provider;
+namespace Ps\Entity\Provider;
 
 use TYPO3\CMS\Core\PageTitle\AbstractPageTitleProvider;
 

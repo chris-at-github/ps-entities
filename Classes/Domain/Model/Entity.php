@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Ps\Entities\Domain\Model;
+namespace Ps\Entity\Domain\Model;
 
 
 /***
@@ -38,7 +38,7 @@ class Entity extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the title
      * 
-     * @return string $title
+     * @return string title
      */
     public function getTitle()
     {
@@ -59,7 +59,7 @@ class Entity extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the slug
      * 
-     * @return string $slug
+     * @return string slug
      */
     public function getSlug()
     {

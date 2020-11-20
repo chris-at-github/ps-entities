@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Ps\Entities\Domain\Repository;
+namespace Ps\Entity\Domain\Repository;
 
 
 /***

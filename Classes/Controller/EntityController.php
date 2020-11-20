@@ -1,10 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Ps\Entities\Controller;
+namespace Ps\Entity\Controller;
 
-
-use Ps\Entities\Provider\PageTitleProvider;
+use Ps\Entity\Provider\PageTitleProvider;
 
 /***
  *
@@ -25,21 +24,14 @@ class EntityController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
     /**
      * entityRepository
      * 
-     * @var \Ps\Entities\Domain\Repository\EntityRepository
+     * @var \Ps\Entity\Domain\Repository\EntityRepository
      */
     protected $entityRepository = null;
 
     /**
-     * @param \Ps\Entities\Domain\Repository\EntityRepository $entityRepository
-     */
-    public function injectEntityRepository(\Ps\Entities\Domain\Repository\EntityRepository $entityRepository)
-    {
-        $this->entityRepository = $entityRepository;
-    }
-
-    /**
      * action list
      * 
+     * @param Ps\Entity\Domain\Model\Entity
      * @return void
      */
     public function listAction()
@@ -51,17 +43,29 @@ class EntityController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
     /**
      * action show
      * 
-     * @param \Ps\Entities\Domain\Model\Entity $entity
+     * @param Ps\Entity\Domain\Model\Entity
      * @return void
      */
-    public function showAction(\Ps\Entities\Domain\Model\Entity $entity)
+    public function showAction(\Ps\Entity\Domain\Model\Entity $entity)
     {
-    	$this->setPageTitle($entity->getTitle());
+        $this->setPageTitle($entity->getTitle());
         $this->view->assign('entity', $entity);
     }
 
-    protected function setPageTitle($title) {
-			$titleProvider = $this->objectManager->get(PageTitleProvider::class);
-			$titleProvider->setTitle($title);
-		}
+    /**
+     * @param $title
+     */
+    protected function setPageTitle($title)
+    {
+        $titleProvider = $this->objectManager->get(PageTitleProvider::class);
+        $titleProvider->setTitle($title);
+    }
+
+    /**
+     * @param \Ps\Entity\Domain\Repository\EntityRepository $EntityRepository
+     */
+    public function injectEntityRepository(\Ps\Entity\Domain\Repository\EntityRepository $entityRepository)
+    {
+        $this->entityRepository = $entityRepository;
+    }
 }

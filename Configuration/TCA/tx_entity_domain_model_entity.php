@@ -1,7 +1,7 @@
 <?php
 return [
 	'ctrl' => [
-		'title' => 'LLL:EXT:entities/Resources/Private/Language/locallang_db.xlf:tx_entities_domain_model_entity',
+		'title' => 'LLL:EXT:entity/Resources/Private/Language/locallang_db.xlf:tx_entity_domain_model_entity',
 		'label' => 'title',
 		'tstamp' => 'tstamp',
 		'crdate' => 'crdate',
@@ -18,7 +18,7 @@ return [
 			'endtime' => 'endtime',
 		],
 		'searchFields' => 'title,slug',
-		'iconfile' => 'EXT:entities/Resources/Public/Icons/tx_entities_domain_model_entity.gif'
+		'iconfile' => 'EXT:entity/Resources/Public/Icons/tx_entity_domain_model_entity.gif'
 	],
 	'interface' => [
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, slug',
@@ -54,8 +54,8 @@ return [
 				'items' => [
 					['', 0],
 				],
-				'foreign_table' => 'tx_entities_domain_model_entity',
-				'foreign_table_where' => 'AND {#tx_entities_domain_model_entity}.{#pid}=###CURRENT_PID### AND {#tx_entities_domain_model_entity}.{#sys_language_uid} IN (-1,0)',
+				'foreign_table' => 'tx_entity_domain_model_entity',
+				'foreign_table_where' => 'AND {#tx_entity_domain_model_entity}.{#pid}=###CURRENT_PID### AND {#tx_entity_domain_model_entity}.{#sys_language_uid} IN (-1,0)',
 			],
 		],
 		'l10n_diffsource' => [
@@ -115,9 +115,11 @@ return [
 				]
 			],
 		],
+
+
 		'title' => [
 			'exclude' => true,
-			'label' => 'LLL:EXT:entities/Resources/Private/Language/locallang_db.xlf:tx_entities_domain_model_entity.title',
+			'label' => 'LLL:EXT:entity/Resources/Private/Language/locallang_db.xlf:tx_entity_domain_model_entity.title',
 			'config' => [
 				'type' => 'input',
 				'size' => 30,
@@ -126,7 +128,7 @@ return [
 		],
 		'slug' => [
 			'exclude' => true,
-			'label' => 'LLL:EXT:entities/Resources/Private/Language/locallang_db.xlf:tx_entities_domain_model_entity.slug',
+			'label' => 'LLL:EXT:entity/Resources/Private/Language/locallang_db.xlf:tx_entity_domain_model_entity.slug',
 			'config' => [
 				'type' => 'slug',
 				'generatorOptions' => [
@@ -144,5 +146,6 @@ return [
 				'default' => ''
 			],
 		],
+
 	],
 ];

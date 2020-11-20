@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="EXT:entities/Resources/Private/Language/locallang" date="2020-11-17T22:25:12Z" product-name="entities">
+	<file source-language="en" datatype="plaintext" original="EXT:entity/Resources/Private/Language/locallang" date="2020-11-20T23:37:55Z" product-name="entity">
 		<header/>
 		<body>
-			<trans-unit id="tx_entities_domain_model_entity" resname="tx_entities_domain_model_entity">
+			<trans-unit id="tx_entity_domain_model_entity" resname="tx_entity_domain_model_entity">
 				<source>Entity</source>
 			</trans-unit>
-			<trans-unit id="tx_entities_domain_model_entity.title" resname="tx_entities_domain_model_entity.title">
+			<trans-unit id="tx_entity_domain_model_entity.title" resname="tx_entity_domain_model_entity.title">
 				<source>Title</source>
 			</trans-unit>
-			<trans-unit id="tx_entities_domain_model_entity.slug" resname="tx_entities_domain_model_entity.slug">
+			<trans-unit id="tx_entity_domain_model_entity.slug" resname="tx_entity_domain_model_entity.slug">
 				<source>Slug</source>
 			</trans-unit>
 		</body>

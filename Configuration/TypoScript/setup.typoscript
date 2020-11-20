@@ -32,3 +32,7 @@ config.pageTitleProviders {
 		before = record, seo
 	}
 }
+
+page.10.dataProcessing.31 = Ps\Entity\DataProcessing\BreadcrumbProcessor
+page.10.dataProcessing.31 {
+}

@@ -118,7 +118,7 @@ return [
 		],
 		'tx_extbase_type' => [
 			'exclude' => true,
-			'label'   => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.tx_extbase_type',
+			'label'   => 'LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.tx_extbase_type',
 			'config' => [
 				'type' => 'select',
 				'renderType' => 'selectSingle',

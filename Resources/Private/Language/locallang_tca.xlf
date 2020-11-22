@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="EXT:entity/Resources/Private/Language/locallang_db" date="2020-11-20T23:37:55Z" product-name="entity">
+	<file source-language="en" datatype="plaintext" original="EXT:entity/Resources/Private/Language/locallang_tca" date="2020-11-20T23:37:55Z" product-name="entity">
 		<header/>
 		<body>
 			<trans-unit id="tx_entity_domain_model_entity" resname="tx_entity_domain_model_entity">
 				<source>Entity</source>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.tx_extbase_type" resname="tx_entity_domain_model_entity.tx_extbase_type">
+				<source>Type</source>
 			</trans-unit>
 			<trans-unit id="tx_entity_domain_model_entity.title" resname="tx_entity_domain_model_entity.title">
 				<source>Title</source>

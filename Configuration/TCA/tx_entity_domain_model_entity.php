@@ -1,8 +1,9 @@
 <?php
 return [
 	'ctrl' => [
-		'title' => 'LLL:EXT:entity/Resources/Private/Language/locallang_db.xlf:tx_entity_domain_model_entity',
+		'title' => 'LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity',
 		'label' => 'title',
+		'type' => 'tx_extbase_type',
 		'tstamp' => 'tstamp',
 		'crdate' => 'crdate',
 		'cruser_id' => 'cruser_id',
@@ -21,10 +22,10 @@ return [
 		'iconfile' => 'EXT:entity/Resources/Public/Icons/tx_entity_domain_model_entity.gif'
 	],
 	'interface' => [
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, slug',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, tx_extbase_type, hidden, title, slug',
 	],
 	'types' => [
-		'1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, slug, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
+		'1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, tx_extbase_type, hidden, title, slug, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
 	],
 	'columns' => [
 		'sys_language_uid' => [
@@ -115,11 +116,24 @@ return [
 				]
 			],
 		],
-
+		'tx_extbase_type' => [
+			'exclude' => true,
+			'label'   => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.tx_extbase_type',
+			'config' => [
+				'type' => 'select',
+				'renderType' => 'selectSingle',
+				'items' => [
+					['',''],
+				],
+				'default' => '',
+				'size' => 1,
+				'maxitems' => 1,
+			]
+		],
 
 		'title' => [
 			'exclude' => true,
-			'label' => 'LLL:EXT:entity/Resources/Private/Language/locallang_db.xlf:tx_entity_domain_model_entity.title',
+			'label' => 'LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.title',
 			'config' => [
 				'type' => 'input',
 				'size' => 30,
@@ -128,7 +142,7 @@ return [
 		],
 		'slug' => [
 			'exclude' => true,
-			'label' => 'LLL:EXT:entity/Resources/Private/Language/locallang_db.xlf:tx_entity_domain_model_entity.slug',
+			'label' => 'LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.slug',
 			'config' => [
 				'type' => 'slug',
 				'generatorOptions' => [

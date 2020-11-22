@@ -26,6 +26,38 @@ plugin.tx_entity_frontend {
 	}
 }
 
+plugin.tx_seo {
+	config {
+		xmlSitemap {
+			sitemaps {
+				entityFrontend {
+					provider = TYPO3\CMS\Seo\XmlSitemap\RecordsXmlSitemapDataProvider
+					config {
+						table = tx_entity_domain_model_entity
+						sortField = sorting
+						lastModifiedField = tstamp
+#						changeFreqField = news_changefreq
+#						priorityField = news_priority
+#						additionalWhere = AND (no_index = 0 OR no_follow = 0)
+						pid = {$plugin.tx_entity_frontend.persistence.storagePid}
+						url {
+							pageId = 48
+							fieldToParameterMap {
+								uid = tx_entity_frontend[entity]
+							}
+
+							additionalGetParameters {
+								tx_entity_frontend.controller = Entity
+								tx_entity_frontend.action = show
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
 config.pageTitleProviders {
 	entity {
 		provider = Ps\Entity\Provider\PageTitleProvider

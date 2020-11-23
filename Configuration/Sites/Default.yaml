@@ -1,13 +1,13 @@
 routeEnhancers:
-  EntityFrontend:
+  EntityProductFrontend:
     type: Extbase
-    limitToPages: [48]
-    extension: Entity
+    limitToPages: [53]
+    extension: EntityProduct
     plugin: Frontend
     routes:
-      - { routePath: '/{page}', _controller: 'Entity::list', _arguments: {'page': '@widget_0/currentPage'} }
-      - { routePath: '/{entity}', _controller: 'Entity::show', _arguments: {'entity': 'entity'} }
-    defaultController: 'Entity::list'
+      - { routePath: '/{page}', _controller: 'Product::list', _arguments: {'page': '@widget_0/currentPage'} }
+      - { routePath: '/{product}', _controller: 'Product::show', _arguments: {'product': 'product'} }
+    defaultController: 'Product::list'
     defaults:
       page: '0'
     requirements:
@@ -17,7 +17,7 @@ routeEnhancers:
         type: StaticRangeMapper
         start: '1'
         end: '100'
-      entity:
+      product:
         type: PersistedAliasMapper
         tableName: tx_entity_domain_model_entity
         routeFieldName: slug

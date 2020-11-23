@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="EXT:entity/Resources/Private/Language/locallang" date="2020-11-20T23:37:55Z" product-name="entity">
+	<file source-language="en" datatype="plaintext" original="EXT:entity/Resources/Private/Language/locallang" date="2020-11-23T23:07:57Z" product-name="entity">
 		<header/>
 		<body>
 			<trans-unit id="tx_entity_domain_model_entity" resname="tx_entity_domain_model_entity">
@@ -11,6 +11,9 @@
 			</trans-unit>
 			<trans-unit id="tx_entity_domain_model_entity.slug" resname="tx_entity_domain_model_entity.slug">
 				<source>Slug</source>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.master_category" resname="tx_entity_domain_model_entity.master_category">
+				<source>Master Category</source>
 			</trans-unit>
 		</body>
 	</file>

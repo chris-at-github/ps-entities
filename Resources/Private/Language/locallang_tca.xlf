@@ -15,6 +15,9 @@
 			<trans-unit id="tx_entity_domain_model_entity.slug" resname="tx_entity_domain_model_entity.slug">
 				<source>Slug</source>
 			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.master_category" resname="tx_entity_domain_model_entity.master_category">
+				<source>Master Category</source>
+			</trans-unit>
 			<trans-unit id="tx_entity_frontend.name" resname="tx_entity_frontend.name">
 				<source>Frontend</source>
 			</trans-unit>

@@ -25,7 +25,7 @@ return [
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, tx_extbase_type, hidden, title, slug',
 	],
 	'types' => [
-		'1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, tx_extbase_type, hidden, title, slug, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
+		'1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, tx_extbase_type, hidden, title, slug, master_category, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
 	],
 	'columns' => [
 		'sys_language_uid' => [
@@ -138,6 +138,22 @@ return [
 				'type' => 'input',
 				'size' => 30,
 				'eval' => 'trim,required'
+			],
+		],
+		'master_category' => [
+			'exclude' => true,
+			'label' => 'LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.master_category',
+			'config' => [
+				'type' => 'select',
+				'renderType' => 'selectSingle',
+				'items' => [
+					['', 0],
+				],
+				'size' => 1,
+				'maxitems' => 1,
+				'eval' => '',
+				'foreign_table' => 'sys_category',
+				'foreign_table_where' => ' AND sys_category.sys_language_uid IN (-1, 0) and sys_category.parent = 4 ORDER BY sys_category.title ASC',
 			],
 		],
 		'slug' => [

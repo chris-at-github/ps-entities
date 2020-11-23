@@ -36,6 +36,13 @@ class Entity extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $slug = '';
 
     /**
+     * masterCategory
+     * 
+     * @var int
+     */
+    protected $masterCategory = 0;
+
+    /**
      * Returns the title
      * 
      * @return string title
@@ -75,5 +82,26 @@ class Entity extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setSlug($slug)
     {
         $this->slug = $slug;
+    }
+
+    /**
+     * Returns the masterCategory
+     * 
+     * @return int $masterCategory
+     */
+    public function getMasterCategory()
+    {
+        return $this->masterCategory;
+    }
+
+    /**
+     * Sets the masterCategory
+     * 
+     * @param int $masterCategory
+     * @return void
+     */
+    public function setMasterCategory($masterCategory)
+    {
+        $this->masterCategory = $masterCategory;
     }
 }

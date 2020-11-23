@@ -14,94 +14,88 @@ namespace Ps\Entity\Domain\Model;
  *  (c) 2020 Christian Pschorr <pschorr.christian@gmail.com>
  *
  ***/
+
 /**
  * Entity
  */
-class Entity extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
-{
+class Entity extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
-    /**
-     * title
-     * 
-     * @var string
-     * @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
-     */
-    protected $title = '';
+	/**
+	 * title
+	 *
+	 * @var string
+	 * @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
+	 */
+	protected $title = '';
 
-    /**
-     * slug
-     * 
-     * @var string
-     */
-    protected $slug = '';
+	/**
+	 * slug
+	 *
+	 * @var string
+	 */
+	protected $slug = '';
 
-    /**
-     * masterCategory
-     * 
-     * @var int
-     */
-    protected $masterCategory = 0;
+	/**
+	 * masterCategory
+	 *
+	 * @var \TYPO3\CMS\Extbase\Domain\Model\Category
+	 */
+	protected $masterCategory;
 
-    /**
-     * Returns the title
-     * 
-     * @return string title
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
+	/**
+	 * Returns the title
+	 *
+	 * @return string title
+	 */
+	public function getTitle() {
+		return $this->title;
+	}
 
-    /**
-     * Sets the title
-     * 
-     * @param string $title
-     * @return void
-     */
-    public function setTitle($title)
-    {
-        $this->title = $title;
-    }
+	/**
+	 * Sets the title
+	 *
+	 * @param string $title
+	 * @return void
+	 */
+	public function setTitle($title) {
+		$this->title = $title;
+	}
 
-    /**
-     * Returns the slug
-     * 
-     * @return string slug
-     */
-    public function getSlug()
-    {
-        return $this->slug;
-    }
+	/**
+	 * Returns the slug
+	 *
+	 * @return string slug
+	 */
+	public function getSlug() {
+		return $this->slug;
+	}
 
-    /**
-     * Sets the slug
-     * 
-     * @param string $slug
-     * @return void
-     */
-    public function setSlug($slug)
-    {
-        $this->slug = $slug;
-    }
+	/**
+	 * Sets the slug
+	 *
+	 * @param string $slug
+	 * @return void
+	 */
+	public function setSlug($slug) {
+		$this->slug = $slug;
+	}
 
-    /**
-     * Returns the masterCategory
-     * 
-     * @return int $masterCategory
-     */
-    public function getMasterCategory()
-    {
-        return $this->masterCategory;
-    }
+	/**
+	 * Returns the masterCategory
+	 *
+	 * @return \TYPO3\CMS\Extbase\Domain\Model\Category $masterCategory
+	 */
+	public function getMasterCategory() {
+		return $this->masterCategory;
+	}
 
-    /**
-     * Sets the masterCategory
-     * 
-     * @param int $masterCategory
-     * @return void
-     */
-    public function setMasterCategory($masterCategory)
-    {
-        $this->masterCategory = $masterCategory;
-    }
+	/**
+	 * Sets the masterCategory
+	 *
+	 * @param \TYPO3\CMS\Extbase\Domain\Model\Category $masterCategory
+	 * @return void
+	 */
+	public function setMasterCategory($masterCategory) {
+		$this->masterCategory = $masterCategory;
+	}
 }

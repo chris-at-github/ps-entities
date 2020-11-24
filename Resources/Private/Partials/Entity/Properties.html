@@ -1,5 +1,5 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
-<table class="table--layout-0">
+<table class="tx-entity" >
 	<tr>
 		<td>
 			<f:translate key="tx_entity_domain_model_entity.title" />
@@ -22,6 +22,172 @@
 		</td>
 		<td>
 		{entity.masterCategory}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<f:translate key="tx_entity_domain_model_entity.image" />
+		</td>
+		<td>
+				<f:image src="{entity.image.originalResource.publicUrl}" width="200"/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<f:translate key="tx_entity_domain_model_entity.media" />
+		</td>
+		<td>
+				<f:for each="{entity.media}" as="image" >
+					<f:image src="{image.originalResource.publicUrl}" width="200"/>
+				</f:for>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<f:translate key="tx_entity_domain_model_entity.files" />
+		</td>
+		<td>
+				<f:for each="{entity.files}" as="file" >
+					<a href="{file.originalResource.publicUrl}">
+						{file.originalResource.name}
+					</a>
+				</f:for>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<f:translate key="tx_entity_domain_model_entity.meta_description" />
+		</td>
+		<td>
+		{entity.metaDescription}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<f:translate key="tx_entity_domain_model_entity.short_description" />
+		</td>
+		<td>
+		{entity.shortDescription}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<f:translate key="tx_entity_domain_model_entity.long_description" />
+		</td>
+		<td>
+		{entity.longDescription}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<f:translate key="tx_entity_domain_model_entity.teaser" />
+		</td>
+		<td>
+		{entity.teaser}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<f:translate key="tx_entity_domain_model_entity.canonical_url" />
+		</td>
+		<td>
+		{entity.canonicalUrl}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<f:translate key="tx_entity_domain_model_entity.no_index" />
+		</td>
+		<td>
+		{entity.noIndex}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<f:translate key="tx_entity_domain_model_entity.no_follow" />
+		</td>
+		<td>
+		{entity.noFollow}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<f:translate key="tx_entity_domain_model_entity.sitemap_change_frequency" />
+		</td>
+		<td>
+		{entity.sitemapChangeFrequency}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<f:translate key="tx_entity_domain_model_entity.sitemap_priority" />
+		</td>
+		<td>
+		{entity.sitemapPriority}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<f:translate key="tx_entity_domain_model_entity.seo_title" />
+		</td>
+		<td>
+		{entity.seoTitle}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<f:translate key="tx_entity_domain_model_entity.og_title" />
+		</td>
+		<td>
+		{entity.ogTitle}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<f:translate key="tx_entity_domain_model_entity.og_description" />
+		</td>
+		<td>
+		{entity.ogDescription}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<f:translate key="tx_entity_domain_model_entity.og_image" />
+		</td>
+		<td>
+				<f:image src="{entity.ogImage.originalResource.publicUrl}" width="200"/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<f:translate key="tx_entity_domain_model_entity.twitter_title" />
+		</td>
+		<td>
+		{entity.twitterTitle}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<f:translate key="tx_entity_domain_model_entity.twitter_description" />
+		</td>
+		<td>
+		{entity.twitterDescription}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<f:translate key="tx_entity_domain_model_entity.twitter_image" />
+		</td>
+		<td>
+				<f:image src="{entity.twitterImage.originalResource.publicUrl}" width="200"/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<f:translate key="tx_entity_domain_model_entity.twitter_card" />
+		</td>
+		<td>
+		{entity.twitterCard}
 		</td>
 	</tr>
 </table>

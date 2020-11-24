@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="EXT:entity/Resources/Private/Language/locallang" date="2020-11-23T23:07:57Z" product-name="entity">
+	<file source-language="en" datatype="plaintext" original="EXT:entity/Resources/Private/Language/locallang" date="2020-11-24T23:05:57Z" product-name="entity">
 		<header/>
 		<body>
 			<trans-unit id="tx_entity_domain_model_entity" resname="tx_entity_domain_model_entity">
@@ -14,6 +14,66 @@
 			</trans-unit>
 			<trans-unit id="tx_entity_domain_model_entity.master_category" resname="tx_entity_domain_model_entity.master_category">
 				<source>Master Category</source>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.image" resname="tx_entity_domain_model_entity.image">
+				<source>Image</source>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.media" resname="tx_entity_domain_model_entity.media">
+				<source>Media</source>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.files" resname="tx_entity_domain_model_entity.files">
+				<source>Files</source>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.meta_description" resname="tx_entity_domain_model_entity.meta_description">
+				<source>Meta Description</source>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.short_description" resname="tx_entity_domain_model_entity.short_description">
+				<source>Short Description</source>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.long_description" resname="tx_entity_domain_model_entity.long_description">
+				<source>Long Description</source>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.teaser" resname="tx_entity_domain_model_entity.teaser">
+				<source>Teaser</source>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.canonical_url" resname="tx_entity_domain_model_entity.canonical_url">
+				<source>Canonical Url</source>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.no_index" resname="tx_entity_domain_model_entity.no_index">
+				<source>No Index</source>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.no_follow" resname="tx_entity_domain_model_entity.no_follow">
+				<source>No Follow</source>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.sitemap_change_frequency" resname="tx_entity_domain_model_entity.sitemap_change_frequency">
+				<source>Sitemap Change Frequency</source>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.sitemap_priority" resname="tx_entity_domain_model_entity.sitemap_priority">
+				<source>Sitemap Priority</source>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.seo_title" resname="tx_entity_domain_model_entity.seo_title">
+				<source>Seo Title</source>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.og_title" resname="tx_entity_domain_model_entity.og_title">
+				<source>Og Title</source>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.og_description" resname="tx_entity_domain_model_entity.og_description">
+				<source>Og Description</source>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.og_image" resname="tx_entity_domain_model_entity.og_image">
+				<source>Og Image</source>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.twitter_title" resname="tx_entity_domain_model_entity.twitter_title">
+				<source>Twitter Title</source>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.twitter_description" resname="tx_entity_domain_model_entity.twitter_description">
+				<source>Twitter Description</source>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.twitter_image" resname="tx_entity_domain_model_entity.twitter_image">
+				<source>Twitter Image</source>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.twitter_card" resname="tx_entity_domain_model_entity.twitter_card">
+				<source>Twitter Card</source>
 			</trans-unit>
 		</body>
 	</file>

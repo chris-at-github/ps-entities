@@ -15,57 +15,63 @@ use Ps\Entity\Provider\PageTitleProvider;
  *  (c) 2020 Christian Pschorr <pschorr.christian@gmail.com>
  *
  ***/
+
 /**
  * EntityController
  */
-class EntityController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
-{
+class EntityController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
 
-    /**
-     * entityRepository
-     * 
-     * @var \Ps\Entity\Domain\Repository\EntityRepository
-     */
-    protected $entityRepository = null;
+	/**
+	 * entityRepository
+	 *
+	 * @var \Ps\Entity\Domain\Repository\EntityRepository
+	 */
+	protected $entityRepository = null;
 
-    /**
-     * action list
-     * 
-     * @param Ps\Entity\Domain\Model\Entity
-     * @return void
-     */
-    public function listAction()
-    {
-        $entities = $this->entityRepository->findAll();
-        $this->view->assign('entities', $entities);
-    }
+	/**
+	 * @param array $overwrite
+	 * @return array
+	 */
+	protected function getDemand($overwrite = []) {
+		$options = [];
 
-    /**
-     * action show
-     * 
-     * @param Ps\Entity\Domain\Model\Entity
-     * @return void
-     */
-    public function showAction(\Ps\Entity\Domain\Model\Entity $entity)
-    {
-        $this->setPageTitle($entity->getTitle());
-        $this->view->assign('entity', $entity);
-    }
+		return $options;
+	}
 
-    /**
-     * @param $title
-     */
-    protected function setPageTitle($title)
-    {
-        $titleProvider = $this->objectManager->get(PageTitleProvider::class);
-        $titleProvider->setTitle($title);
-    }
+	/**
+	 * action list
+	 *
+	 * @param Ps\Entity\Domain\Model\Entity
+	 * @return void
+	 */
+	public function listAction() {
+		$entities = $this->entityRepository->findAll();
+		$this->view->assign('entities', $entities);
+	}
 
-    /**
-     * @param \Ps\Entity\Domain\Repository\EntityRepository $EntityRepository
-     */
-    public function injectEntityRepository(\Ps\Entity\Domain\Repository\EntityRepository $entityRepository)
-    {
-        $this->entityRepository = $entityRepository;
-    }
+	/**
+	 * action show
+	 *
+	 * @param Ps\Entity\Domain\Model\Entity
+	 * @return void
+	 */
+	public function showAction(\Ps\Entity\Domain\Model\Entity $entity) {
+		$this->setPageTitle($entity->getTitle());
+		$this->view->assign('entity', $entity);
+	}
+
+	/**
+	 * @param $title
+	 */
+	protected function setPageTitle($title) {
+		$titleProvider = $this->objectManager->get(PageTitleProvider::class);
+		$titleProvider->setTitle($title);
+	}
+
+	/**
+	 * @param \Ps\Entity\Domain\Repository\EntityRepository $EntityRepository
+	 */
+	public function injectEntityRepository(\Ps\Entity\Domain\Repository\EntityRepository $entityRepository) {
+		$this->entityRepository = $entityRepository;
+	}
 }

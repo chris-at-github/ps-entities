@@ -43,6 +43,159 @@ class Entity extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $masterCategory;
 
 	/**
+	 * image
+	 *
+	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+	 * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
+	 */
+	protected $image = null;
+
+	/**
+	 * media
+	 *
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
+	 * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
+	 */
+	protected $media = null;
+
+	/**
+	 * files
+	 *
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
+	 * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
+	 */
+	protected $files = null;
+
+	/**
+	 * metaDescription
+	 *
+	 * @var string
+	 */
+	protected $metaDescription = '';
+
+	/**
+	 * shortDescription
+	 *
+	 * @var string
+	 */
+	protected $shortDescription = '';
+
+	/**
+	 * longDescription
+	 *
+	 * @var string
+	 */
+	protected $longDescription = '';
+
+	/**
+	 * teaser
+	 *
+	 * @var string
+	 */
+	protected $teaser = '';
+
+	/**
+	 * canonicalUrl
+	 *
+	 * @var string
+	 */
+	protected $canonicalUrl = '';
+
+	/**
+	 * noIndex
+	 *
+	 * @var bool
+	 */
+	protected $noIndex = false;
+
+	/**
+	 * noFollow
+	 *
+	 * @var bool
+	 */
+	protected $noFollow = false;
+
+	/**
+	 * sitemapChangeFrequency
+	 *
+	 * @var int
+	 */
+	protected $sitemapChangeFrequency = 0;
+
+	/**
+	 * sitemapPriority
+	 *
+	 * @var float
+	 */
+	protected $sitemapPriority = 0.0;
+
+	/**
+	 * seoTitle
+	 *
+	 * @var string
+	 */
+	protected $seoTitle = '';
+
+	/**
+	 * ogTitle
+	 *
+	 * @var string
+	 */
+	protected $ogTitle = '';
+
+	/**
+	 * ogDescription
+	 *
+	 * @var string
+	 */
+	protected $ogDescription = '';
+
+	/**
+	 * ogImage
+	 *
+	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+	 * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
+	 */
+	protected $ogImage = null;
+
+	/**
+	 * twitterTitle
+	 *
+	 * @var string
+	 */
+	protected $twitterTitle = '';
+
+	/**
+	 * twitterDescription
+	 *
+	 * @var string
+	 */
+	protected $twitterDescription = '';
+
+	/**
+	 * twitterImage
+	 *
+	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+	 * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
+	 */
+	protected $twitterImage = null;
+
+	/**
+	 * twitterCard
+	 *
+	 * @var int
+	 */
+	protected $twitterCard = 0;
+
+	/**
+	 * related
+	 *
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\Entity\Domain\Model\Entity>
+	 * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
+	 */
+	protected $related = null;
+
+	/**
 	 * __construct
 	 */
 	public function __construct() {
@@ -62,6 +215,7 @@ class Entity extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected function initializeObject() {
 		$this->media = $this->media ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		$this->files = $this->files ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$this->related = $this->related ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 	}
 
 	/**

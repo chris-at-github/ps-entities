@@ -3,6 +3,7 @@ return [
 	'ctrl' => [
 		'title' => 'LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity',
 		'label' => 'title',
+		'type' => 'tx_extbase_type',
 		'tstamp' => 'tstamp',
 		'crdate' => 'crdate',
 		'cruser_id' => 'cruser_id',

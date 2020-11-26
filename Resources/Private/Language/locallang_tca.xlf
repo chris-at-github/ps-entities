@@ -78,6 +78,9 @@
 			<trans-unit id="tx_entity_domain_model_entity.twitter_card" resname="tx_entity_domain_model_entity.twitter_card">
 				<source>Twitter Card</source>
 			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.related" resname="tx_entity_domain_model_entity.related">
+				<source>Related</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

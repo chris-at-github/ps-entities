@@ -24,7 +24,7 @@ return [
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, tx_extbase_type, title, slug, master_category, image, media, files, meta_description, short_description, long_description, teaser, canonical_url, no_index, no_follow, sitemap_change_frequency, sitemap_priority, seo_title, og_title, og_description, og_image, twitter_title, twitter_description, twitter_image, twitter_card',
 	],
 	'types' => [
-		'1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, tx_extbase_type, title, slug, master_category, image, media, files, meta_description, short_description, long_description, teaser, canonical_url, no_index, no_follow, sitemap_change_frequency, sitemap_priority, seo_title, og_title, og_description, og_image, twitter_title, twitter_description, twitter_image, twitter_card, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
+		'1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, tx_extbase_type, title, slug, master_category, image, media, files, meta_description, short_description, long_description, teaser, canonical_url, no_index, no_follow, sitemap_change_frequency, sitemap_priority, seo_title, og_title, og_description, og_image, twitter_title, twitter_description, twitter_image, twitter_card, related --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
 	],
 	'columns' => [
 		'sys_language_uid' => [
@@ -619,6 +619,33 @@ return [
 				'maxitems' => 1,
 				'eval' => ''
 			],
+		],
+
+		'related' => [
+			'exclude' => true,
+			'label' => 'LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.related',
+			'config' => [
+				'type' => 'select',
+				'renderType' => 'selectMultipleSideBySide',
+				'foreign_table' => 'tx_entity_domain_model_entity',
+				'MM' => 'tx_entity_entity_entity_mm',
+				'size' => 10,
+				'autoSizeMax' => 30,
+				'maxitems' => 9999,
+				'multiple' => 0,
+				'fieldControl' => [
+					'editPopup' => [
+						'disabled' => false,
+					],
+					'addRecord' => [
+						'disabled' => false,
+					],
+					'listModule' => [
+						'disabled' => true,
+					],
+				],
+			],
+
 		],
 
 	],

@@ -24,7 +24,19 @@ CREATE TABLE tx_entity_domain_model_entity
 	twitter_title varchar(255) DEFAULT '' NOT NULL,
 	twitter_description text,
 	twitter_image int(11) unsigned NOT NULL default '0',
-	twitter_card int(11) DEFAULT '0' NOT NULL
+	twitter_card int(11) DEFAULT '0' NOT NULL,
+	related int(11) unsigned DEFAULT '0' NOT NULL
+
+);
 
 
+CREATE TABLE tx_entity_entity_entity_mm (
+	uid_local int(11) unsigned DEFAULT '0' NOT NULL,
+	uid_foreign int(11) unsigned DEFAULT '0' NOT NULL,
+	sorting int(11) unsigned DEFAULT '0' NOT NULL,
+	sorting_foreign int(11) unsigned DEFAULT '0' NOT NULL,
+
+	PRIMARY KEY (uid_local,uid_foreign),
+	KEY uid_local (uid_local),
+	KEY uid_foreign (uid_foreign)
 );

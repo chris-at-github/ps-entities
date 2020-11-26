@@ -712,4 +712,18 @@ class Entity extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	public function setTwitterCard($twitterCard) {
 		$this->twitterCard = $twitterCard;
 	}
+
+	/**
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
+	 */
+	public function getRelated(): \TYPO3\CMS\Extbase\Persistence\ObjectStorage {
+		return $this->related;
+	}
+
+	/**
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $related
+	 */
+	public function setRelated(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $related): void {
+		$this->related = $related;
+	}
 }

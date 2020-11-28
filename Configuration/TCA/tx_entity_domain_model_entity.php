@@ -182,7 +182,8 @@ return [
 				'image',
 				[
 					'appearance' => [
-						'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference'
+						'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference',
+						'collapseAll' => 1,
 					],
 					'foreign_match_fields' => [
 						'fieldname' => 'image',
@@ -218,7 +219,8 @@ return [
 					'media',
 					[
 						'appearance' => [
-							'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference'
+							'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference',
+							'collapseAll' => 1,
 						],
 						'foreign_types' => [
 							'0' => [
@@ -272,7 +274,8 @@ return [
 					'files',
 					[
 						'appearance' => [
-							'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:media.addFileReference'
+							'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:media.addFileReference',
+							'collapseAll' => 1,
 						],
 						'foreign_types' => [
 							'0' => [

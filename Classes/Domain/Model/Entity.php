@@ -4,6 +4,10 @@ declare(strict_types=1);
 namespace Ps\Entity\Domain\Model;
 
 
+use TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder;
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
+use TYPO3\CMS\Extbase\Annotation\Inject;
+
 /***
  *
  * This file is part of the "Entities" Extension for TYPO3 CMS.
@@ -19,6 +23,12 @@ namespace Ps\Entity\Domain\Model;
  * Entity
  */
 class Entity extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
+
+	/**
+	 * @Inject
+	 * @var \TYPO3\CMS\Extbase\Object\ObjectManagerInterface
+	 */
+	protected $objectManager;
 
 	/**
 	 * title
@@ -194,6 +204,8 @@ class Entity extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
 	 */
 	protected $related = null;
+
+
 
 	/**
 	 * __construct
@@ -725,5 +737,40 @@ class Entity extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setRelated(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $related): void {
 		$this->related = $related;
+	}
+
+	/**
+	 * @return array
+	 */
+	protected function getLinkArguments() {
+		return [
+			'extension' => 'Entity',
+			'controller' => 'Entity',
+			'action' => 'show',
+			'plugin' => 'Frontend',
+			'arguments' => [
+				'entity' => $this->getUid()
+			]
+		];
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getLink() {
+		$link = '';
+
+		if($this->getMasterCategory() !== null && $this->getMasterCategory()->getPage() !== null) {
+
+			/** @var UriBuilder $uriBuilder */
+			$uriBuilder = $this->objectManager->get(UriBuilder::class);
+			$arguments = $this->getLinkArguments();
+			$link = $uriBuilder
+				->reset()
+				->setTargetPageUid($this->getMasterCategory()->getPage()->getUid())
+				->uriFor($arguments['action'], $arguments['arguments'], $arguments['controller'], $arguments['extension'], $arguments['plugin']);
+		}
+
+		return $link;
 	}
 }

@@ -15,9 +15,9 @@ class Category extends \Ps\Xo\Domain\Model\Category {
 	protected $page;
 
 	/**
-	 * @return \Ps\Xo\Domain\Model\Page
+	 * @return \Ps\Xo\Domain\Model\Page|null
 	 */
-	public function getPage(): \Ps\Xo\Domain\Model\Page {
+	public function getPage(): ?\Ps\Xo\Domain\Model\Page {
 		return $this->page;
 	}
 

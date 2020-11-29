@@ -1,9 +1,9 @@
 <?php
-declare(strict_types=1);
 
 namespace Ps\Entity\Controller;
 
 use Ps\Entity\Provider\PageTitleProvider;
+use Ps\Entity\Domain\Model\Entity;
 
 /***
  *
@@ -41,7 +41,6 @@ class EntityController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 	/**
 	 * action list
 	 *
-	 * @param Ps\Entity\Domain\Model\Entity
 	 * @return void
 	 */
 	public function listAction() {
@@ -52,10 +51,10 @@ class EntityController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 	/**
 	 * action show
 	 *
-	 * @param Ps\Entity\Domain\Model\Entity
+	 * @param \Ps\Entity\Domain\Model\Entity
 	 * @return void
 	 */
-	public function showAction(\Ps\Entity\Domain\Model\Entity $entity) {
+	public function showAction($entity) {
 		$this->setPageTitle($entity->getTitle());
 		$this->view->assign('entity', $entity);
 	}

@@ -1,5 +1,11 @@
-CREATE TABLE tx_entity_domain_model_entity
-(
+#
+# Extend SysCategory
+#
+CREATE TABLE sys_category (
+	tx_entity_page int(11) DEFAULT '0' NOT NULL,
+);
+
+CREATE TABLE tx_entity_domain_model_entity (
 	tx_extbase_type varchar(255) DEFAULT '' NOT NULL,
 	title varchar(255) DEFAULT '' NOT NULL,
 	slug varchar(255) DEFAULT '' NOT NULL,
@@ -16,7 +22,7 @@ CREATE TABLE tx_entity_domain_model_entity
 	no_index smallint(5) unsigned DEFAULT '0' NOT NULL,
 	no_follow smallint(5) unsigned DEFAULT '0' NOT NULL,
 	sitemap_change_frequency int(11) DEFAULT '0' NOT NULL,
-	sitemap_priority double(11,2) DEFAULT '0.00' NOT NULL,
+	sitemap_priority double(11, 2) DEFAULT '0.00' NOT NULL,
 	seo_title varchar(255) DEFAULT '' NOT NULL,
 	og_title varchar(255) DEFAULT '' NOT NULL,
 	og_description text,
@@ -29,14 +35,13 @@ CREATE TABLE tx_entity_domain_model_entity
 
 );
 
-
 CREATE TABLE tx_entity_entity_entity_mm (
 	uid_local int(11) unsigned DEFAULT '0' NOT NULL,
 	uid_foreign int(11) unsigned DEFAULT '0' NOT NULL,
 	sorting int(11) unsigned DEFAULT '0' NOT NULL,
 	sorting_foreign int(11) unsigned DEFAULT '0' NOT NULL,
 
-	PRIMARY KEY (uid_local,uid_foreign),
+	PRIMARY KEY (uid_local, uid_foreign),
 	KEY uid_local (uid_local),
 	KEY uid_foreign (uid_foreign)
 );

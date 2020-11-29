@@ -38,7 +38,7 @@ class Entity extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * masterCategory
 	 *
-	 * @var \Ps\Xo\Domain\Model\Category
+	 * @var \Ps\Entity\Domain\Model\Category
 	 */
 	protected $masterCategory;
 

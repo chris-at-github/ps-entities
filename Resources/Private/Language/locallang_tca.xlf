@@ -3,6 +3,10 @@
 	<file source-language="en" datatype="plaintext" original="EXT:entity/Resources/Private/Language/locallang_tca" date="2020-11-20T23:37:55Z" product-name="entity">
 		<header/>
 		<body>
+			<trans-unit id="tx_entity_sys_category.page" resname="tx_entity_sys_category.page">
+				<source>Target Page</source>
+			</trans-unit>
+
 			<trans-unit id="tx_entity_domain_model_entity" resname="tx_entity_domain_model_entity">
 				<source>Entity</source>
 			</trans-unit>

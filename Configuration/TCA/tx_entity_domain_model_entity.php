@@ -330,8 +330,9 @@ return [
 			'config' => [
 				'type' => 'text',
 				'cols' => 40,
-				'rows' => 15,
-				'eval' => 'trim'
+				'rows' => 4,
+				'eval' => 'trim',
+				'max' => 160
 			]
 		],
 		'short_description' => [
@@ -393,8 +394,19 @@ return [
 			'label' => 'LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.canonical_url',
 			'config' => [
 				'type' => 'input',
-				'size' => 30,
-				'eval' => 'trim'
+				'renderType' => 'inputLink',
+				'size' => 40,
+				'max' => 1024,
+				'fieldControl' => [
+					'linkPopup' => [
+						'options' => [
+							'title' => 'LLL:EXT:seo/Resources/Private/Language/locallang_tca.xlf:pages.canonical_link',
+							'blindLinkFields' => 'class,target,title',
+							'blindLinkOptions' => 'mail,folder,file,telephone'
+						],
+					],
+				],
+				'softref' => 'typolink'
 			],
 		],
 		'no_index' => [
@@ -430,20 +442,39 @@ return [
 				'type' => 'select',
 				'renderType' => 'selectSingle',
 				'items' => [
-					['-- Label --', 0],
+					['LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.sitemap_change_frequency.none', ''],
+					['LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.sitemap_change_frequency.always', 'always'],
+					['LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.sitemap_change_frequency.hourly', 'hourly'],
+					['LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.sitemap_change_frequency.daily', 'daily'],
+					['LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.sitemap_change_frequency.weekly', 'weekly'],
+					['LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.sitemap_change_frequency.monthly', 'monthly'],
+					['LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.sitemap_change_frequency.yearly', 'yearly'],
+					['LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.sitemap_change_frequency.never', 'never'],
 				],
 				'size' => 1,
-				'maxitems' => 1,
-				'eval' => ''
 			],
 		],
 		'sitemap_priority' => [
 			'exclude' => true,
 			'label' => 'LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.sitemap_priority',
 			'config' => [
-				'type' => 'input',
-				'size' => 30,
-				'eval' => 'double2'
+				'type' => 'select',
+				'renderType' => 'selectSingle',
+				'default' => '0.5',
+				'items' => [
+					['0.0', '0.0'],
+					['0.1', '0.1'],
+					['0.2', '0.2'],
+					['0.3', '0.3'],
+					['0.4', '0.4'],
+					['0.5', '0.5'],
+					['0.6', '0.6'],
+					['0.7', '0.7'],
+					['0.8', '0.8'],
+					['0.9', '0.9'],
+					['1.0', '1.0'],
+				],
+				'size' => 1,
 			]
 		],
 		'seo_title' => [
@@ -451,8 +482,9 @@ return [
 			'label' => 'LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.seo_title',
 			'config' => [
 				'type' => 'input',
-				'size' => 30,
-				'eval' => 'trim'
+				'size' => 40,
+				'eval' => 'trim',
+				'max' => 60
 			],
 		],
 		'og_title' => [

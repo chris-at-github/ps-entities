@@ -7,6 +7,26 @@
 				<source>Target Page</source>
 			</trans-unit>
 
+			<trans-unit id="tx_entity_domain_model_entity.tab.seo" resname="tx_entity_domain_model_entity.tab.seo">
+				<source>SEO</source>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.tab.socialmedia" resname="tx_entity_domain_model_entity.tab.socialmedia">
+				<source>Social Media</source>
+			</trans-unit>
+
+			<trans-unit id="tx_entity_domain_model_entity.palette.seoGeneral" resname="tx_entity_domain_model_entity.palette.seoGeneral">
+				<source>General SEO settings</source>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.palette.seoRobots" resname="tx_entity_domain_model_entity.palette.seoRobots">
+				<source>Robot instructions</source>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.palette.seoCanonical" resname="tx_entity_domain_model_entity.palette.seoCanonical">
+				<source>Canonical</source>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.palette.seoSitemap" resname="tx_entity_domain_model_entity.palette.seoSitemap">
+				<source>Sitemap</source>
+			</trans-unit>
+
 			<trans-unit id="tx_entity_domain_model_entity" resname="tx_entity_domain_model_entity">
 				<source>Entity</source>
 			</trans-unit>
@@ -55,11 +75,35 @@
 			<trans-unit id="tx_entity_domain_model_entity.sitemap_change_frequency" resname="tx_entity_domain_model_entity.sitemap_change_frequency">
 				<source>Sitemap Change Frequency</source>
 			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.sitemap_change_frequency.none" resname="tx_entity_domain_model_entity.sitemap_change_frequency.none">
+				<source>None</source>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.sitemap_change_frequency.always" resname="tx_entity_domain_model_entity.sitemap_change_frequency.always">
+				<source>Always</source>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.sitemap_change_frequency.hourly" resname="tx_entity_domain_model_entity.sitemap_change_frequency.hourly">
+				<source>Hourly</source>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.sitemap_change_frequency.daily" resname="tx_entity_domain_model_entity.sitemap_change_frequency.daily">
+				<source>Daily</source>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.sitemap_change_frequency.weekly" resname="tx_entity_domain_model_entity.sitemap_change_frequency.weekly">
+				<source>Weekly</source>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.sitemap_change_frequency.monthly" resname="tx_entity_domain_model_entity.sitemap_change_frequency.monthly">
+				<source>Monthly</source>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.sitemap_change_frequency.yearly" resname="tx_entity_domain_model_entity.sitemap_change_frequency.yearly">
+				<source>Yearly</source>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.sitemap_change_frequency.never" resname="tx_entity_domain_model_entity.sitemap_change_frequency.never">
+				<source>Never</source>
+			</trans-unit>
 			<trans-unit id="tx_entity_domain_model_entity.sitemap_priority" resname="tx_entity_domain_model_entity.sitemap_priority">
 				<source>Sitemap Priority</source>
 			</trans-unit>
 			<trans-unit id="tx_entity_domain_model_entity.seo_title" resname="tx_entity_domain_model_entity.seo_title">
-				<source>Seo Title</source>
+				<source>Alternative SEO Title</source>
 			</trans-unit>
 			<trans-unit id="tx_entity_domain_model_entity.og_title" resname="tx_entity_domain_model_entity.og_title">
 				<source>Og Title</source>

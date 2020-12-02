@@ -17,6 +17,10 @@ $GLOBALS['TCA']['tx_entity_domain_model_entity']['palettes']['files'] = [
 	'showitem' => 'files,'
 ];
 
+$GLOBALS['TCA']['tx_entity_domain_model_entity']['palettes']['relation'] = [
+	'showitem' => 'related,'
+];
+
 $GLOBALS['TCA']['tx_entity_domain_model_entity']['palettes']['seoGeneral'] = [
 	'showitem' => 'seo_title, --linebreak--, meta_description, --linebreak--, slug,'
 ];
@@ -67,6 +71,8 @@ $GLOBALS['TCA']['tx_entity_domain_model_entity']['types']['1']['showitem'] = '
 --div--;LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.tab.socialmedia,
 	--palette--;LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.palette.socialmediaOg;socialmediaOg,
 	--palette--;LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.palette.socialmediaTwitter;socialmediaTwitter,
+--div--;LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.tab.relation,
+	--palette--;;relation,
 --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
 	--palette--;;language,
 --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,

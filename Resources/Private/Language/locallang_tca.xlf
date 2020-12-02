@@ -13,6 +13,9 @@
 			<trans-unit id="tx_entity_domain_model_entity.tab.socialmedia" resname="tx_entity_domain_model_entity.tab.socialmedia">
 				<source>Social Media</source>
 			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.tab.relation" resname="tx_entity_domain_model_entity.tab.relation">
+				<source>Relations</source>
+			</trans-unit>
 
 			<trans-unit id="tx_entity_domain_model_entity.palette.seoGeneral" resname="tx_entity_domain_model_entity.palette.seoGeneral">
 				<source>General SEO settings</source>

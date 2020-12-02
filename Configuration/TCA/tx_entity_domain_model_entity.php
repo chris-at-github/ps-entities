@@ -618,27 +618,14 @@ return [
 			'exclude' => true,
 			'label' => 'LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.related',
 			'config' => [
-				'type' => 'select',
-				'renderType' => 'selectMultipleSideBySide',
+				'type' => 'group',
+				'internal_type' => 'db',
+				'allowed' => 'tx_entity_domain_model_entity',
 				'foreign_table' => 'tx_entity_domain_model_entity',
 				'MM' => 'tx_entity_entity_entity_mm',
-				'size' => 10,
-				'autoSizeMax' => 30,
-				'maxitems' => 9999,
-				'multiple' => 0,
-				'fieldControl' => [
-					'editPopup' => [
-						'disabled' => false,
-					],
-					'addRecord' => [
-						'disabled' => false,
-					],
-					'listModule' => [
-						'disabled' => true,
-					],
-				],
+				'maxitems' => 999,
+				'size' => 4,
 			],
-
 		],
 	],
 ];

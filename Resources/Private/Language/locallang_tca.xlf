@@ -26,6 +26,12 @@
 			<trans-unit id="tx_entity_domain_model_entity.palette.seoSitemap" resname="tx_entity_domain_model_entity.palette.seoSitemap">
 				<source>Sitemap</source>
 			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.palette.socialmediaOg" resname="tx_entity_domain_model_entity.palette.socialmediaOg">
+				<source>Open Graph</source>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.palette.socialmediaTwitter" resname="tx_entity_domain_model_entity.palette.socialmediaTwitter">
+				<source>Twitter</source>
+			</trans-unit>
 
 			<trans-unit id="tx_entity_domain_model_entity" resname="tx_entity_domain_model_entity">
 				<source>Entity</source>
@@ -106,25 +112,31 @@
 				<source>Alternative SEO Title</source>
 			</trans-unit>
 			<trans-unit id="tx_entity_domain_model_entity.og_title" resname="tx_entity_domain_model_entity.og_title">
-				<source>Og Title</source>
+				<source>Title</source>
 			</trans-unit>
 			<trans-unit id="tx_entity_domain_model_entity.og_description" resname="tx_entity_domain_model_entity.og_description">
-				<source>Og Description</source>
+				<source>Description</source>
 			</trans-unit>
 			<trans-unit id="tx_entity_domain_model_entity.og_image" resname="tx_entity_domain_model_entity.og_image">
-				<source>Og Image</source>
+				<source>Image</source>
 			</trans-unit>
 			<trans-unit id="tx_entity_domain_model_entity.twitter_title" resname="tx_entity_domain_model_entity.twitter_title">
-				<source>Twitter Title</source>
+				<source>Title</source>
 			</trans-unit>
 			<trans-unit id="tx_entity_domain_model_entity.twitter_description" resname="tx_entity_domain_model_entity.twitter_description">
-				<source>Twitter Description</source>
+				<source>Description</source>
 			</trans-unit>
 			<trans-unit id="tx_entity_domain_model_entity.twitter_image" resname="tx_entity_domain_model_entity.twitter_image">
-				<source>Twitter Image</source>
+				<source>Image</source>
 			</trans-unit>
 			<trans-unit id="tx_entity_domain_model_entity.twitter_card" resname="tx_entity_domain_model_entity.twitter_card">
-				<source>Twitter Card</source>
+				<source>Card</source>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.twitter_card.summary" resname="tx_entity_domain_model_entity.twitter_card.summary">
+				<source>Summary</source>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.twitter_card.summaryLargeImage" resname="tx_entity_domain_model_entity.twitter_card.summaryLargeImage">
+				<source>Summary Large Image</source>
 			</trans-unit>
 			<trans-unit id="tx_entity_domain_model_entity.related" resname="tx_entity_domain_model_entity.related">
 				<source>Related</source>

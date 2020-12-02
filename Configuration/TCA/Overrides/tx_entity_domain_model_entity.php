@@ -30,7 +30,11 @@ $GLOBALS['TCA']['tx_entity_domain_model_entity']['palettes']['language'] = [
 ];
 
 $GLOBALS['TCA']['tx_entity_domain_model_entity']['palettes']['access'] = [
-	'showitem' => 'hidden, starttime, endtime,'
+	'showitem' => 'hidden, --linebreak--, starttime, endtime,'
+];
+
+$GLOBALS['TCA']['tx_entity_domain_model_entity']['palettes']['category'] = [
+	'showitem' => 'master_category, --linebreak--'
 ];
 
 $GLOBALS['TCA']['tx_entity_domain_model_entity']['types']['1']['showitem'] = '
@@ -41,8 +45,8 @@ $GLOBALS['TCA']['tx_entity_domain_model_entity']['types']['1']['showitem'] = '
 	--palette--;LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.palette.seoCanonical;seoCanonical,
 	--palette--;LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.palette.seoSitemap;seoSitemap,
 --div--;LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.tab.socialmedia,
-	--palette--;;socialmediaOg,
-	--palette--;;socialmediaTwitter,
+	--palette--;LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.palette.socialmediaOg;socialmediaOg,
+	--palette--;LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.palette.socialmediaTwitter;socialmediaTwitter,
 --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
 	--palette--;;language,
 --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
@@ -50,10 +54,16 @@ $GLOBALS['TCA']['tx_entity_domain_model_entity']['types']['1']['showitem'] = '
 --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,
 	tx_extbase_type,
 --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:categories,
+	--palette--;;category,
 ';
 
 // Kategorien definieren
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::makeCategorizable(
    'entity',
-   'tx_entity_domain_model_entity'
+   'tx_entity_domain_model_entity',
+	'categories',
+	[
+		'fieldList' => 'categories',
+		'position' => 'after:master_category'
+	]
 );

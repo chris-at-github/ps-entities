@@ -1,6 +1,22 @@
 <?php
 defined('TYPO3_MODE') || die();
 
+$GLOBALS['TCA']['tx_entity_domain_model_entity']['palettes']['title'] = [
+	'showitem' => 'title,'
+];
+
+$GLOBALS['TCA']['tx_entity_domain_model_entity']['palettes']['description'] = [
+	'showitem' => 'short_description, --linebreak--, long_description,'
+];
+
+$GLOBALS['TCA']['tx_entity_domain_model_entity']['palettes']['media'] = [
+	'showitem' => 'image, --linebreak--, media,'
+];
+
+$GLOBALS['TCA']['tx_entity_domain_model_entity']['palettes']['files'] = [
+	'showitem' => 'files,'
+];
+
 $GLOBALS['TCA']['tx_entity_domain_model_entity']['palettes']['seoGeneral'] = [
 	'showitem' => 'seo_title, --linebreak--, meta_description, --linebreak--, slug,'
 ];
@@ -39,6 +55,10 @@ $GLOBALS['TCA']['tx_entity_domain_model_entity']['palettes']['category'] = [
 
 $GLOBALS['TCA']['tx_entity_domain_model_entity']['types']['1']['showitem'] = '
 --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+	--palette--;;title,
+	--palette--;;description,
+	--palette--;;media,
+	--palette--;;files,
 --div--;LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.tab.seo,
 	--palette--;LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.palette.seoGeneral;seoGeneral,
 	--palette--;LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.palette.seoRobots;seoRobots,

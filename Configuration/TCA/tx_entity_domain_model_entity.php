@@ -138,7 +138,7 @@ return [
 			'label' => 'LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.title',
 			'config' => [
 				'type' => 'input',
-				'size' => 30,
+				'size' => 40,
 				'eval' => 'trim,required'
 			],
 		],

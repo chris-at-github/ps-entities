@@ -34,11 +34,11 @@ class EntityRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 	 */
 	protected function getMatches($query, $options) {
 		$matches = [];
+
 		if(isset($options['masterCategory']) === true) {
 
 			// bei Eingabe von festen IDs duerfen nur die IDs der Hauptsprache verwendet werden, Extbase kuemmert sich per
 			// Overlay um die korrekte Uebersetzung
-//			$query->getQuerySettings()->setRespectSysLanguage(false);
 			$query->getQuerySettings()->setLanguageOverlayMode(true);
 			$matches[] = $query->equals('masterCategory', $options['masterCategory']);
 		}

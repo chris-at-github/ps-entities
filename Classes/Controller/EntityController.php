@@ -43,7 +43,7 @@ class EntityController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 	 *
 	 * @return void
 	 */
-	public function listAction() {
+	public function listingAction() {
 		$entities = $this->entityRepository->findAll();
 		$this->view->assign('entities', $entities);
 	}

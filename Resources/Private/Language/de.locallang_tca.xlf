@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:entity/Resources/Private/Language/locallang_tca" date="2020-11-20T23:37:55Z" product-name="entity" target-language="de">
+		<header/>
+		<body>
+			<trans-unit id="tx_entity_sys_category.page" resname="tx_entity_sys_category.page">
+				<target>Zielseite</target>
+			</trans-unit>
+
+			<trans-unit id="tx_entity_domain_model_entity.tab.seo" resname="tx_entity_domain_model_entity.tab.seo">
+				<target>SEO</target>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.tab.socialmedia" resname="tx_entity_domain_model_entity.tab.socialmedia">
+				<target>Social Media</target>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.tab.relation" resname="tx_entity_domain_model_entity.tab.relation">
+				<target>Relations</target>
+			</trans-unit>
+
+			<trans-unit id="tx_entity_domain_model_entity.palette.seoGeneral" resname="tx_entity_domain_model_entity.palette.seoGeneral">
+				<target>General SEO settings</target>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.palette.seoRobots" resname="tx_entity_domain_model_entity.palette.seoRobots">
+				<target>Robot instructions</target>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.palette.seoCanonical" resname="tx_entity_domain_model_entity.palette.seoCanonical">
+				<target>Canonical</target>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.palette.seoSitemap" resname="tx_entity_domain_model_entity.palette.seoSitemap">
+				<target>Sitemap</target>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.palette.socialmediaOg" resname="tx_entity_domain_model_entity.palette.socialmediaOg">
+				<target>Open Graph</target>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.palette.socialmediaTwitter" resname="tx_entity_domain_model_entity.palette.socialmediaTwitter">
+				<target>Twitter</target>
+			</trans-unit>
+
+			<trans-unit id="tx_entity_domain_model_entity" resname="tx_entity_domain_model_entity">
+				<target>Entity</target>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.tx_extbase_type" resname="tx_entity_domain_model_entity.tx_extbase_type">
+				<target>Type</target>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.title" resname="tx_entity_domain_model_entity.title">
+				<target>Titel</target>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.slug" resname="tx_entity_domain_model_entity.slug">
+				<target>Slug</target>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.master_category" resname="tx_entity_domain_model_entity.master_category">
+				<target>Master Category</target>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.image" resname="tx_entity_domain_model_entity.image">
+				<target>Hauptbild</target>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.media" resname="tx_entity_domain_model_entity.media">
+				<target>Medien</target>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.files" resname="tx_entity_domain_model_entity.files">
+				<target>Dateien</target>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.meta_description" resname="tx_entity_domain_model_entity.meta_description">
+				<target>Meta Description</target>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.short_description" resname="tx_entity_domain_model_entity.short_description">
+				<target>Short Description</target>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.long_description" resname="tx_entity_domain_model_entity.long_description">
+				<target>Long Description</target>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.teaser" resname="tx_entity_domain_model_entity.teaser">
+				<target>Teaser</target>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.canonical_url" resname="tx_entity_domain_model_entity.canonical_url">
+				<target>Canonical Url</target>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.no_index" resname="tx_entity_domain_model_entity.no_index">
+				<target>No Index</target>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.no_follow" resname="tx_entity_domain_model_entity.no_follow">
+				<target>No Follow</target>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.sitemap_change_frequency" resname="tx_entity_domain_model_entity.sitemap_change_frequency">
+				<target>Sitemap Change Frequency</target>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.sitemap_change_frequency.none" resname="tx_entity_domain_model_entity.sitemap_change_frequency.none">
+				<target>None</target>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.sitemap_change_frequency.always" resname="tx_entity_domain_model_entity.sitemap_change_frequency.always">
+				<target>Always</target>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.sitemap_change_frequency.hourly" resname="tx_entity_domain_model_entity.sitemap_change_frequency.hourly">
+				<target>Hourly</target>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.sitemap_change_frequency.daily" resname="tx_entity_domain_model_entity.sitemap_change_frequency.daily">
+				<target>Daily</target>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.sitemap_change_frequency.weekly" resname="tx_entity_domain_model_entity.sitemap_change_frequency.weekly">
+				<target>Weekly</target>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.sitemap_change_frequency.monthly" resname="tx_entity_domain_model_entity.sitemap_change_frequency.monthly">
+				<target>Monthly</target>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.sitemap_change_frequency.yearly" resname="tx_entity_domain_model_entity.sitemap_change_frequency.yearly">
+				<target>Yearly</target>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.sitemap_change_frequency.never" resname="tx_entity_domain_model_entity.sitemap_change_frequency.never">
+				<target>Never</target>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.sitemap_priority" resname="tx_entity_domain_model_entity.sitemap_priority">
+				<target>Sitemap Priority</target>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.seo_title" resname="tx_entity_domain_model_entity.seo_title">
+				<target>Alternative SEO Title</target>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.og_title" resname="tx_entity_domain_model_entity.og_title">
+				<target>Title</target>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.og_description" resname="tx_entity_domain_model_entity.og_description">
+				<target>Description</target>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.og_image" resname="tx_entity_domain_model_entity.og_image">
+				<target>Image</target>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.twitter_title" resname="tx_entity_domain_model_entity.twitter_title">
+				<target>Title</target>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.twitter_description" resname="tx_entity_domain_model_entity.twitter_description">
+				<target>Description</target>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.twitter_image" resname="tx_entity_domain_model_entity.twitter_image">
+				<target>Image</target>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.twitter_card" resname="tx_entity_domain_model_entity.twitter_card">
+				<target>Card</target>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.twitter_card.summary" resname="tx_entity_domain_model_entity.twitter_card.summary">
+				<target>Summary</target>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.twitter_card.summaryLargeImage" resname="tx_entity_domain_model_entity.twitter_card.summaryLargeImage">
+				<target>Summary Large Image</target>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.related" resname="tx_entity_domain_model_entity.related">
+				<target>Related</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

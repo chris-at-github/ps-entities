@@ -6,10 +6,7 @@ use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\QueryBuilder;
 use TYPO3\CMS\Core\Site\Entity\Site;
 use TYPO3\CMS\Core\Site\SiteFinder;
-use TYPO3\CMS\Core\Utility\ArrayUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder;
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
 use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
@@ -40,37 +37,40 @@ class LanguageNavigationProcessor implements DataProcessorInterface {
 				$argumentPrefix = $processorConfiguration['argumentPrefix'];
 				$uid = (int) $arguments[$argumentPrefix][$processorConfiguration['uidArgument']];
 
-				/** @var QueryBuilder $queryBuilder */
-				$queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tx_entity_domain_model_entity');
+				if(empty($uid) === false) {
 
-				/** @var Site $site */
-				$site = GeneralUtility::makeInstance(SiteFinder::class)->getSiteByPageId((int) $this->getTypoScriptFrontendController()->id);
+					/** @var QueryBuilder $queryBuilder */
+					$queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tx_entity_domain_model_entity');
 
-				// Durchlaufe alle verfuegbaren Sprachen aus dem Language Menu
-				// Pruefe ob die eigentliche Seite uebersetzt ist
-				foreach($processedData['navigationLanguage'] as &$language) {
+					/** @var Site $site */
+					$site = GeneralUtility::makeInstance(SiteFinder::class)->getSiteByPageId((int) $this->getTypoScriptFrontendController()->id);
 
-					if($language['available'] === 1) {
-						$statement = $queryBuilder
-							->select('*')
-							->from('tx_entity_domain_model_entity')
-							->orWhere(
-								$queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($uid)),
-								$queryBuilder->expr()->eq('l10n_parent', $queryBuilder->createNamedParameter($uid))
-							)
-							->andWhere($queryBuilder->expr()->eq('sys_language_uid', $queryBuilder->createNamedParameter((int) $language['languageUid'])))
-							->execute();
+					// Durchlaufe alle verfuegbaren Sprachen aus dem Language Menu
+					// Pruefe ob die eigentliche Seite uebersetzt ist
+					foreach($processedData['navigationLanguage'] as &$language) {
 
-						// Wenn es einen Datensatz gibt wurde er in angegebene Sprache uebersetzt
-						if($statement->fetch() !== false) {
-							$language['link'] = $site->getRouter()->generateUri((int) $this->getTypoScriptFrontendController()->id, [
-								$argumentPrefix => $arguments[$argumentPrefix],
-								'_language' => (int) $language['languageUid']
-							])->getPath();
+						if($language['available'] === 1) {
+							$statement = $queryBuilder
+								->select('*')
+								->from('tx_entity_domain_model_entity')
+								->orWhere(
+									$queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($uid)),
+									$queryBuilder->expr()->eq('l10n_parent', $queryBuilder->createNamedParameter($uid))
+								)
+								->andWhere($queryBuilder->expr()->eq('sys_language_uid', $queryBuilder->createNamedParameter((int) $language['languageUid'])))
+								->execute();
 
-						// deaktiviere den Sprachlink, auch wenn die Detailseite uebersetzt
-						} else {
-							$language['available'] = 0;
+							// Wenn es einen Datensatz gibt wurde er in angegebene Sprache uebersetzt
+							if($statement->fetch() !== false) {
+								$language['link'] = $site->getRouter()->generateUri((int) $this->getTypoScriptFrontendController()->id, [
+									$argumentPrefix => $arguments[$argumentPrefix],
+									'_language' => (int) $language['languageUid']
+								])->getPath();
+
+								// deaktiviere den Sprachlink, auch wenn die Detailseite uebersetzt
+							} else {
+								$language['available'] = 0;
+							}
 						}
 					}
 				}

@@ -71,7 +71,7 @@ page.10.dataProcessing.31 {
 	titleField = title
 }
 
-page.10.dataProcessing.41 = Ps\Entity\DataProcessing\LanguageMenuProcessor
+page.10.dataProcessing.41 = Ps\Entity\DataProcessing\LanguageNavigationProcessor
 page.10.dataProcessing.41 {
 	argumentPrefix = tx_entity_frontend
 	uidArgument = entity

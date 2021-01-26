@@ -11,10 +11,6 @@ use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
 use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
 
-/**
- * AddressProcessor fuer TtAddress Datensaetze, die innerhalb von Content Elementen (FSCEs) verknuepft sind. Diese werden
- * im Feld tx_xo_content innerhalb der Tabelle tt_address mit der UID des Content Elements versehen
- */
 class BreadcrumbProcessor implements DataProcessorInterface {
 
 	/**

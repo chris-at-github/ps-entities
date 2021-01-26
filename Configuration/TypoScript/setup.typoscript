@@ -70,3 +70,9 @@ page.10.dataProcessing.31 {
 	uidArgument = tx_entity_frontend|entity
 	titleField = title
 }
+
+page.10.dataProcessing.41 = Ps\Entity\DataProcessing\LanguageMenuProcessor
+page.10.dataProcessing.41 {
+	argumentPrefix = tx_entity_frontend
+	uidArgument = entity
+}

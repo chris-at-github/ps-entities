@@ -41,7 +41,11 @@ class BreadcrumbProcessor implements DataProcessorInterface {
 				$statement = $queryBuilder
 					->select($processorConfiguration['titleField'])
 					->from('tx_entity_domain_model_entity')
-					->where($queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($uid)))
+					->orWhere(
+						$queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($uid)),
+						$queryBuilder->expr()->eq('l10n_parent', $queryBuilder->createNamedParameter($uid))
+					)
+					->andWhere($queryBuilder->expr()->eq('sys_language_uid', $queryBuilder->createNamedParameter($this->getTypoScriptFrontendController()->getLanguage()->getLanguageId())))
 					->execute();
 
 				if(($row = $statement->fetch()) !== false) {

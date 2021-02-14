@@ -121,6 +121,7 @@ return [
 		],
 		'tx_extbase_type' => [
 			'exclude' => true,
+			'l10n_mode' => 'exclude',
 			'label'   => 'LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.tx_extbase_type',
 			'config' => [
 				'type' => 'select',
@@ -164,6 +165,7 @@ return [
 		],
 		'master_category' => [
 			'exclude' => true,
+			'l10n_mode' => 'exclude',
 			'label' => 'LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.master_category',
 			'config' => [
 				'type' => 'select',
@@ -323,8 +325,6 @@ return [
 						'maxitems' => 99
 					]
 				),
-
-
 		],
 		'meta_description' => [
 			'exclude' => true,
@@ -389,10 +389,10 @@ return [
 				'rows' => 15,
 				'eval' => 'trim',
 			],
-
 		],
 		'canonical_url' => [
 			'exclude' => true,
+			'l10n_mode' => 'exclude',
 			'label' => 'LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.canonical_url',
 			'config' => [
 				'type' => 'input',
@@ -413,6 +413,7 @@ return [
 		],
 		'no_index' => [
 			'exclude' => true,
+			'l10n_mode' => 'exclude',
 			'label' => 'LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.no_index',
 			'config' => [
 				'type' => 'check',
@@ -426,6 +427,7 @@ return [
 		],
 		'no_follow' => [
 			'exclude' => true,
+			'l10n_mode' => 'exclude',
 			'label' => 'LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.no_follow',
 			'config' => [
 				'type' => 'check',
@@ -439,6 +441,7 @@ return [
 		],
 		'sitemap_change_frequency' => [
 			'exclude' => true,
+			'l10n_mode' => 'exclude',
 			'label' => 'LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.sitemap_change_frequency',
 			'config' => [
 				'type' => 'select',
@@ -458,6 +461,7 @@ return [
 		],
 		'sitemap_priority' => [
 			'exclude' => true,
+			'l10n_mode' => 'exclude',
 			'label' => 'LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.sitemap_priority',
 			'config' => [
 				'type' => 'select',
@@ -603,6 +607,7 @@ return [
 		],
 		'twitter_card' => [
 			'exclude' => true,
+			'l10n_mode' => 'exclude',
 			'label' => 'LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.twitter_card',
 			'config' => [
 				'type' => 'select',

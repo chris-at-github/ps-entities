@@ -8,6 +8,7 @@ use TYPO3\CMS\Core\MetaTag\Html5MetaTagManager;
 use TYPO3\CMS\Core\MetaTag\MetaTagManagerRegistry;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
+use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 
 /***
  *
@@ -88,6 +89,7 @@ class EntityController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 		// Title-Tag, Meta-Tags, Social-Media-Tags setzen
 		$this->setPageTitle($entity);
 		$this->setMetaTags($entity);
+		$this->setCanonicalTag($entity);
 	}
 
 	/**
@@ -143,6 +145,39 @@ class EntityController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 			/** @var Html5MetaTagManager $metaTagManager */
 			$metaTagManager = GeneralUtility::makeInstance(MetaTagManagerRegistry::class)->getManagerForProperty('robots');
 			$metaTagManager->addProperty('robots', implode(', ', $robots));
+		}
+	}
+
+	/**
+	 * @param Entity $entity
+	 */
+	protected function setCanonicalTag($entity) {
+
+		// @todo:
+
+		if(empty($entity->getCanonicalUrl()) === false) {
+
+			/** @var ContentObjectRenderer $contentObject */
+			$contentObject = GeneralUtility::makeInstance(ContentObjectRenderer::class);
+
+			/** @var Html5MetaTagManager $metaTagManager */
+			$metaTagManager = GeneralUtility::makeInstance(MetaTagManagerRegistry::class)->getManagerForProperty('canonical');
+
+			$instructions = [
+				'parameter' => $entity->getCanonicalUrl(),
+				'forceAbsoluteUrl' => true,
+			];
+
+			// Uebersetzung wird selbststaendig von TYPO3 durchgefuehrt wenn auf den Datensatz der Hauptsprache verlinkt wird
+			// Wenn die Zielseite nicht in der entsprechenden Sprache vorhanden ist
+			$canonical = $contentObject->typoLink_URL($instructions);
+
+			if(empty($canonical) === false) {
+				$metaTagManager->addProperty('canonical', $canonical, [], true);
+
+				// Entfernen der Hreflangs
+				// @see: https://www.more-fire.com/blog/hreflang-die-5-haeufigsten-fehler-und-hall-of-fame/#fehler9
+			}
 		}
 	}
 }

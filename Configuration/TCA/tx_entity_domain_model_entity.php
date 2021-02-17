@@ -213,7 +213,6 @@ return [
 
 				$GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
 			),
-
 		],
 		'media' => [
 			'exclude' => true,
@@ -371,7 +370,6 @@ return [
 				'rows' => 15,
 				'eval' => 'trim',
 			],
-
 		],
 		'teaser' => [
 			'exclude' => true,
@@ -537,6 +535,24 @@ return [
 									--palette--;;filePalette'
 							],
 						],
+						'columns' => [
+							'crop' => [
+								'config' => [
+									'cropVariants' => [
+										'default' => [
+											'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.crop_variant.default',
+											'allowedAspectRatios' => [
+												'191_1' => [
+													'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.191_1',
+													'value' => 1.91 / 1
+												],
+											],
+											'selectedRatio' => '191_1',
+										],
+									]
+								]
+							]
+						]
 					],
 					'foreign_match_fields' => [
 						'fieldname' => 'og_image',

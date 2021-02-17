@@ -4,6 +4,7 @@ namespace Ps\Entity\Controller;
 
 use Ps\Entity\Provider\PageTitleProvider;
 use Ps\Entity\Domain\Model\Entity;
+use Ps\Entity\Service\CropImageService;
 use TYPO3\CMS\Core\MetaTag\Html5MetaTagManager;
 use TYPO3\CMS\Core\MetaTag\MetaTagManagerRegistry;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -89,6 +90,7 @@ class EntityController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 		// Title-Tag, Meta-Tags, Social-Media-Tags setzen
 		$this->setPageTitle($entity);
 		$this->setMetaTags($entity);
+		$this->setOgTags($entity);
 	}
 
 	/**
@@ -144,6 +146,72 @@ class EntityController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 			/** @var Html5MetaTagManager $metaTagManager */
 			$metaTagManager = GeneralUtility::makeInstance(MetaTagManagerRegistry::class)->getManagerForProperty('robots');
 			$metaTagManager->addProperty('robots', implode(', ', $robots));
+		}
+	}
+
+	/**
+	 * @param Entity $entity
+	 */
+	protected function setOgTags($entity) {
+		$this->setOgTitle($entity);
+		$this->setOgDescription($entity);
+		$this->setOgImage($entity);
+	}
+
+	/**
+	 * @param Entity $entity
+	 */
+	protected function setOgTitle($entity) {
+
+		$title = $entity->getTitle();
+
+		if(empty($entity->getOgTitle()) === false) {
+			$title = $entity->getOgTitle();
+
+		} elseif(empty($entity->getSeoTitle()) === false) {
+			$title = $entity->getSeoTitle();
+		}
+
+		/** @var Html5MetaTagManager $metaTagManager */
+		$metaTagManager = GeneralUtility::makeInstance(MetaTagManagerRegistry::class)->getManagerForProperty('og:title');
+		$metaTagManager->addProperty('og:title', $title);
+	}
+
+	/**
+	 * @param Entity $entity
+	 */
+	protected function setOgDescription($entity) {
+
+		$description = $entity->getMetaDescription();
+
+		if(empty($entity->getOgDescription()) === false) {
+			$description = $entity->getOgDescription();
+		}
+
+		if(empty($description) === false) {
+
+			/** @var Html5MetaTagManager $metaTagManager */
+			$metaTagManager = GeneralUtility::makeInstance(MetaTagManagerRegistry::class)->getManagerForProperty('og:description');
+			$metaTagManager->addProperty('og:description', $description);
+		}
+	}
+
+	/**
+	 * @param Entity $entity
+	 */
+	protected function setOgImage($entity) {
+		if($entity->getOgImage()) {
+
+			/** @var CropImageService $cropService */
+			$cropService = GeneralUtility::makeInstance(CropImageService::class);
+			$ogImage = $cropService->crop($entity->getOgImage(), ['maxWidth' => 1200, 'cropVariant' => 'default', 'absolute' => true]);
+
+			if(empty($ogImage) === false) {
+
+				/** @var Html5MetaTagManager $metaTagManager */
+				$metaTagManager = GeneralUtility::makeInstance(MetaTagManagerRegistry::class)->getManagerForProperty('og:image');
+				$metaTagManager->addProperty('og:image', $ogImage['uri']);
+			}
 		}
 	}
 }

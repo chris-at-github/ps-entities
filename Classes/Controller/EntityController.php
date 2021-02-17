@@ -2,14 +2,12 @@
 
 namespace Ps\Entity\Controller;
 
+use Ps\Xo\Service\CropImageService;
 use Ps\Entity\Provider\PageTitleProvider;
 use Ps\Entity\Domain\Model\Entity;
-use Ps\Entity\Service\CropImageService;
 use TYPO3\CMS\Core\MetaTag\Html5MetaTagManager;
 use TYPO3\CMS\Core\MetaTag\MetaTagManagerRegistry;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
-use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 
 /***
  *

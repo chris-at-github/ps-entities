@@ -1,22 +1,26 @@
-plugin.tx_entity_frontend {
+plugin.tx_entity {
 	view {
-		templateRootPaths.0 = EXT:entity/Resources/Private/Templates/
-		templateRootPaths.1 = {$plugin.tx_entity_frontend.view.templateRootPath}
-		partialRootPaths.0 = EXT:entity/Resources/Private/Partials/
-		partialRootPaths.1 = {$plugin.tx_entity_frontend.view.partialRootPath}
 		layoutRootPaths.0 = EXT:entity/Resources/Private/Layouts/
-		layoutRootPaths.1 = {$plugin.tx_entity_frontend.view.layoutRootPath}
+		layoutRootPaths.1 = {$plugin.tx_entity.view.layoutRootPath}
+
+		templateRootPaths.0 = EXT:entity/Resources/Private/Templates/
+		templateRootPaths.1 = {$plugin.tx_entity.view.templateRootPath}
+
+		partialRootPaths.0 = EXT:entity/Resources/Private/Partials/
+		partialRootPaths.1 = {$plugin.tx_entity.view.partialRootPath}
 	}
 
 	persistence {
-		storagePid = {$plugin.tx_entity_frontend.persistence.storagePid}
+		storagePid = {$plugin.tx_entity.persistence.storagePid}
 		#recursive = 1
 	}
 
 	features {
 		#skipDefaultArguments = 1
+
 		# if set to 1, the enable fields are ignored in BE context
 		ignoreAllEnableFieldsInBe = 0
+
 		# Should be on by default, but can be disabled if all action in the plugin are uncached
 		requireCHashArgumentForActionArguments = 1
 	}

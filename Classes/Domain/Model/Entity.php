@@ -193,9 +193,9 @@ class Entity extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * twitterCard
 	 *
-	 * @var int
+	 * @var string
 	 */
-	protected $twitterCard = 0;
+	protected $twitterCard = '';
 
 	/**
 	 * related
@@ -707,18 +707,14 @@ class Entity extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	}
 
 	/**
-	 * Returns the twitterCard
-	 *
-	 * @return int $twitterCard
+	 * @return string $twitterCard
 	 */
 	public function getTwitterCard() {
 		return $this->twitterCard;
 	}
 
 	/**
-	 * Sets the twitterCard
-	 *
-	 * @param int $twitterCard
+	 * @param string $twitterCard
 	 * @return void
 	 */
 	public function setTwitterCard($twitterCard) {

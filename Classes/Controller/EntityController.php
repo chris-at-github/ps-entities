@@ -89,6 +89,7 @@ class EntityController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 		$this->setPageTitle($entity);
 		$this->setMetaTags($entity);
 		$this->setOgTags($entity);
+		$this->setTwitterTags($entity);
 	}
 
 	/**
@@ -198,7 +199,7 @@ class EntityController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 	 * @param Entity $entity
 	 */
 	protected function setOgImage($entity) {
-		if($entity->getOgImage()) {
+		if($entity->getOgImage() !== null) {
 
 			/** @var CropImageService $cropService */
 			$cropService = GeneralUtility::makeInstance(CropImageService::class);
@@ -208,8 +209,85 @@ class EntityController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 
 				/** @var Html5MetaTagManager $metaTagManager */
 				$metaTagManager = GeneralUtility::makeInstance(MetaTagManagerRegistry::class)->getManagerForProperty('og:image');
-				$metaTagManager->addProperty('og:image', $ogImage['uri']);
+				$metaTagManager->addProperty('og:image', $ogImage['uri'], [], true);
 			}
 		}
+	}
+
+	/**
+	 * @param Entity $entity
+	 */
+	protected function setTwitterTags($entity) {
+		$this->setTwitterTitle($entity);
+		$this->setTwitterDescription($entity);
+		$this->setTwitterImage($entity);
+		$this->setTwitterCard($entity);
+	}
+
+	/**
+	 * @param Entity $entity
+	 */
+	protected function setTwitterTitle($entity) {
+
+		$title = $entity->getTitle();
+
+		if(empty($entity->getTwitterTitle()) === false) {
+			$title = $entity->getTwitterTitle();
+
+		} elseif(empty($entity->getSeoTitle()) === false) {
+			$title = $entity->getSeoTitle();
+		}
+
+		/** @var Html5MetaTagManager $metaTagManager */
+		$metaTagManager = GeneralUtility::makeInstance(MetaTagManagerRegistry::class)->getManagerForProperty('twitter:title');
+		$metaTagManager->addProperty('twitter:title', $title);
+	}
+
+	/**
+	 * @param Entity $entity
+	 */
+	protected function setTwitterDescription($entity) {
+
+		$description = $entity->getMetaDescription();
+
+		if(empty($entity->getTwitterDescription()) === false) {
+			$description = $entity->getTwitterDescription();
+		}
+
+		if(empty($description) === false) {
+
+			/** @var Html5MetaTagManager $metaTagManager */
+			$metaTagManager = GeneralUtility::makeInstance(MetaTagManagerRegistry::class)->getManagerForProperty('twitter:description');
+			$metaTagManager->addProperty('twitter:description', $description);
+		}
+	}
+
+	/**
+	 * @param Entity $entity
+	 */
+	protected function setTwitterImage($entity) {
+		if($entity->getTwitterImage() !== null) {
+
+			/** @var CropImageService $cropService */
+			$cropService = GeneralUtility::makeInstance(CropImageService::class);
+			$twitterImage = $cropService->crop($entity->getTwitterImage(), ['maxWidth' => 800, 'cropVariant' => 'default', 'absolute' => true]);
+
+			if(empty($twitterImage) === false) {
+
+				/** @var Html5MetaTagManager $metaTagManager */
+				$metaTagManager = GeneralUtility::makeInstance(MetaTagManagerRegistry::class)->getManagerForProperty('twitter:image');
+				$metaTagManager->addProperty('twitter:image', $twitterImage['uri']);
+			}
+		}
+	}
+
+	/**
+	 * @param Entity $entity
+	 */
+	protected function setTwitterCard($entity) {
+
+		/** @var Html5MetaTagManager $metaTagManager */
+		$metaTagManager = GeneralUtility::makeInstance(MetaTagManagerRegistry::class)->getManagerForProperty('twitter:card');
+		$metaTagManager->addProperty('twitter:card', $entity->getTwitterCard());
 	}
 }

@@ -69,14 +69,16 @@ config.pageTitleProviders {
 	}
 }
 
-page.10.dataProcessing.31 = Ps\Entity\DataProcessing\BreadcrumbProcessor
-page.10.dataProcessing.31 {
-	uidArgument = tx_entity_frontend|entity
-	titleField = title
-}
+// Einbindung Breadcrumb -> angepasste Version in Sub-Extension einbinden (falls noetig)
+// page.10.dataProcessing.31 = Ps\Entity\DataProcessing\BreadcrumbProcessor
+// page.10.dataProcessing.31 {
+// 	uidArgument = tx_entity_frontend|entity
+// 	titleField = title
+// }
 
-page.10.dataProcessing.41 = Ps\Entity\DataProcessing\LanguageNavigationProcessor
-page.10.dataProcessing.41 {
-	argumentPrefix = tx_entity_frontend
-	uidArgument = entity
-}
+// Einbindung Breadcrumb -> angepasste Version in Sub-Extension einbinden (falls noetig)
+// page.10.dataProcessing.41 = Ps\Entity\DataProcessing\LanguageNavigationProcessor
+// page.10.dataProcessing.41 {
+// 	argumentPrefix = tx_entity_frontend
+// 	uidArgument = entity
+// }

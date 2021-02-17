@@ -342,7 +342,7 @@ return [
 			'config' => [
 				'type' => 'text',
 				'enableRichtext' => true,
-				'richtextConfiguration' => 'default',
+				'richtextConfiguration' => 'xoMinimal',
 				'fieldControl' => [
 					'fullScreenRichtext' => [
 						'disabled' => false,
@@ -360,7 +360,7 @@ return [
 			'config' => [
 				'type' => 'text',
 				'enableRichtext' => true,
-				'richtextConfiguration' => 'default',
+				'richtextConfiguration' => 'xoDefault',
 				'fieldControl' => [
 					'fullScreenRichtext' => [
 						'disabled' => false,
@@ -377,7 +377,7 @@ return [
 			'config' => [
 				'type' => 'text',
 				'enableRichtext' => true,
-				'richtextConfiguration' => 'default',
+				'richtextConfiguration' => 'xoMinimal',
 				'fieldControl' => [
 					'fullScreenRichtext' => [
 						'disabled' => false,

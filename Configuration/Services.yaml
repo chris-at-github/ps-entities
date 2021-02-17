@@ -1,6 +1,0 @@
-services:
-  Ps\Entity\EventListener\CanonicalTagEventListener:
-    tags:
-      - name: event.listener
-        identifier: 'entity.canonical'
-        event: TYPO3\CMS\Seo\Event\ModifyUrlForCanonicalTagEvent

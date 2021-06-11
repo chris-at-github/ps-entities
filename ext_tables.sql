@@ -8,6 +8,7 @@ CREATE TABLE sys_category (
 CREATE TABLE tx_entity_domain_model_entity (
 	tx_extbase_type varchar(255) DEFAULT '' NOT NULL,
 	title varchar(255) DEFAULT '' NOT NULL,
+	subtitle text,
 	slug varchar(1024) DEFAULT '' NOT NULL,
 	master_category int(11) DEFAULT '0' NOT NULL,
 	categories int(11) unsigned DEFAULT '0' NOT NULL,

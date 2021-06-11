@@ -45,6 +45,9 @@
 			<trans-unit id="tx_entity_domain_model_entity.title" resname="tx_entity_domain_model_entity.title">
 				<source>Title</source>
 			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.subtitle" resname="tx_entity_domain_model_entity.subtitle">
+				<source>Subtitle</source>
+			</trans-unit>
 			<trans-unit id="tx_entity_domain_model_entity.slug" resname="tx_entity_domain_model_entity.slug">
 				<source>Slug</source>
 			</trans-unit>

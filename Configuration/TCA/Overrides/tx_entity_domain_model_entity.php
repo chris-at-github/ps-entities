@@ -2,7 +2,7 @@
 defined('TYPO3_MODE') || die();
 
 $GLOBALS['TCA']['tx_entity_domain_model_entity']['palettes']['title'] = [
-	'showitem' => 'title,'
+	'showitem' => 'title, --linebreak--, subtitle'
 ];
 
 $GLOBALS['TCA']['tx_entity_domain_model_entity']['palettes']['description'] = [

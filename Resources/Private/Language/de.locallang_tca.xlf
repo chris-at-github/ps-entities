@@ -45,11 +45,14 @@
 			<trans-unit id="tx_entity_domain_model_entity.title" resname="tx_entity_domain_model_entity.title">
 				<target>Titel</target>
 			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.subtitle" resname="tx_entity_domain_model_entity.subtitle">
+				<target>Untertitel</target>
+			</trans-unit>
 			<trans-unit id="tx_entity_domain_model_entity.slug" resname="tx_entity_domain_model_entity.slug">
 				<target>Slug</target>
 			</trans-unit>
 			<trans-unit id="tx_entity_domain_model_entity.master_category" resname="tx_entity_domain_model_entity.master_category">
-				<target>Master Category</target>
+				<target>Hauptkategorie</target>
 			</trans-unit>
 			<trans-unit id="tx_entity_domain_model_entity.image" resname="tx_entity_domain_model_entity.image">
 				<target>Hauptbild</target>

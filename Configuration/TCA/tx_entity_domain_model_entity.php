@@ -21,14 +21,14 @@ return [
 			'starttime' => 'starttime',
 			'endtime' => 'endtime',
 		],
-		'searchFields' => 'title,slug,meta_description,short_description,long_description,teaser,canonical_url,seo_title,og_title,og_description,twitter_title,twitter_description',
+		'searchFields' => 'title,subtitle,slug,meta_description,short_description,long_description,teaser,canonical_url,seo_title,og_title,og_description,twitter_title,twitter_description',
 		'iconfile' => 'EXT:entity/Resources/Public/Icons/tx_entity_domain_model_entity.gif'
 	],
 	'interface' => [
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, tx_extbase_type, title, slug, master_category, image, media, files, meta_description, short_description, long_description, teaser, canonical_url, no_index, no_follow, sitemap_change_frequency, sitemap_priority, seo_title, og_title, og_description, og_image, twitter_title, twitter_description, twitter_image, twitter_card',
 	],
 	'types' => [
-		'1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, tx_extbase_type, title, slug, master_category, image, media, files, meta_description, short_description, long_description, teaser, canonical_url, no_index, no_follow, sitemap_change_frequency, sitemap_priority, seo_title, og_title, og_description, og_image, twitter_title, twitter_description, twitter_image, twitter_card, related --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
+		'1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, tx_extbase_type, title, subtitle, slug, master_category, image, media, files, meta_description, short_description, long_description, teaser, canonical_url, no_index, no_follow, sitemap_change_frequency, sitemap_priority, seo_title, og_title, og_description, og_image, twitter_title, twitter_description, twitter_image, twitter_card, related --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
 	],
 	'columns' => [
 		'sys_language_uid' => [
@@ -142,6 +142,16 @@ return [
 				'size' => 40,
 				'eval' => 'trim,required'
 			],
+		],
+		'subtitle' => [
+			'exclude' => true,
+			'label' => 'LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.subtitle',
+			'config' => [
+				'type' => 'text',
+				'cols' => 40,
+				'rows' => 2,
+				'eval' => 'trim',
+			]
 		],
 		'slug' => [
 			'exclude' => true,

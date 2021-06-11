@@ -39,6 +39,11 @@ class Entity extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $title = '';
 
 	/**
+	 * @var string
+	 */
+	protected $subtitle = '';
+
+	/**
 	 * slug
 	 *
 	 * @var string
@@ -247,6 +252,20 @@ class Entity extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setTitle($title) {
 		$this->title = $title;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getSubtitle(): string {
+		return $this->subtitle;
+	}
+
+	/**
+	 * @param string $subtitle
+	 */
+	public function setSubtitle(string $subtitle): void {
+		$this->subtitle = $subtitle;
 	}
 
 	/**

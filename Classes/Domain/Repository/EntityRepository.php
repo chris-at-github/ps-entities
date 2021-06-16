@@ -42,6 +42,7 @@ class EntityRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 			$query->getQuerySettings()->setLanguageOverlayMode(true);
 			$matches[] = $query->equals('masterCategory', $options['masterCategory']);
 		}
+
 		return $matches;
 	}
 

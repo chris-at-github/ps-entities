@@ -772,7 +772,7 @@ class Entity extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * @return string
 	 */
-	public function getLink() {
+	public function getLink($t = false) {
 		$link = '';
 
 		if($this->getMasterCategory() !== null && $this->getMasterCategory()->getPage() !== null) {

@@ -26,18 +26,35 @@ class CanonicalTagEventListener {
 	}
 
 	/**
-	 * @param ModifyUrlForCanonicalTagEvent $event
+	 * @return Entity|null
 	 */
-	public function __invoke(ModifyUrlForCanonicalTagEvent $event): void {
+	protected function getEntity() {
 		$uid = $this->getUid();
 
 		if(empty($uid) === false) {
+			return GeneralUtility::makeInstance(EntityRepository::class)->findByUid($uid);
+		}
 
-			/** @var Entity $entity */
-			$entity = GeneralUtility::makeInstance(EntityRepository::class)->findByUid($uid);
+		return null;
+	}
 
-			if(empty($entity->getCanonicalUrl()) === false && $entity->getNoIndex() === false) {
-				$canonical = GeneralUtility::makeInstance(CanonicalTagService::class)->getUrl($entity->getCanonicalUrl());
+	/**
+	 * @param ModifyUrlForCanonicalTagEvent $event
+	 */
+	public function __invoke(ModifyUrlForCanonicalTagEvent $event): void {
+		$entity = $this->getEntity();
+
+		if($entity !== null) {
+			if($entity->getNoIndex() === false) {
+
+				// gesetzte URL aus dem Enitity verwenden
+				if(empty($entity->getCanonicalUrl()) === false) {
+					$canonical = GeneralUtility::makeInstance(CanonicalTagService::class)->getUrl($entity->getCanonicalUrl());
+
+				// zur Sicherheit nochmal die Canonical setzen (falls das Entity unter mehreren URLs angezeigt wird
+				} else {
+					$canonical = $entity->getLink();
+				}
 
 				if(empty($canonical) === false) {
 					$event->setUrl($canonical);

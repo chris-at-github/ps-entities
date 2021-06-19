@@ -40,7 +40,7 @@ class EntityRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 			// bei Eingabe von festen IDs duerfen nur die IDs der Hauptsprache verwendet werden, Extbase kuemmert sich per
 			// Overlay um die korrekte Uebersetzung
 			$query->getQuerySettings()->setLanguageOverlayMode(true);
-			$matches[] = $query->equals('masterCategory', $options['masterCategory']);
+			$matches['masterCategory'] = $query->equals('masterCategory', $options['masterCategory']);
 		}
 
 		return $matches;

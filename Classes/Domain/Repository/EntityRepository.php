@@ -5,6 +5,7 @@ namespace Ps\Entity\Domain\Repository;
 
 use TYPO3\CMS\Extbase\Persistence\Exception\InvalidQueryException;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 /***
  *
@@ -60,6 +61,7 @@ class EntityRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 		if(empty($matches = $this->getMatches($query, $demand)) === false) {
 			$query->matching($query->logicalAnd($matches));
 		}
+
 		return $query->execute();
 	}
 

@@ -675,5 +675,18 @@ return [
 				'size' => 4,
 			],
 		],
+		'parent' => [
+			'exclude' => true,
+			'label' => 'LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.parent',
+			'config' => [
+				'type' => 'group',
+				'internal_type' => 'db',
+				'allowed' => 'tx_entity_domain_model_entity',
+				'foreign_table' => 'tx_entity_domain_model_entity',
+				'default' => 0,
+				'size' => 1,
+				'maxitems' => 1,
+			],
+		],
 	],
 ];

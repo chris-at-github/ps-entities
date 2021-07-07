@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="EXT:entity/Resources/Private/Language/locallang" date="2020-11-24T23:05:57Z" product-name="entity">
+	<file source-language="en" datatype="plaintext" original="EXT:entity/Resources/Private/Language/locallang" date="2021-07-07T10:31:10Z" product-name="entity">
 		<header/>
 		<body>
 			<trans-unit id="tx_entity_domain_model_entity" resname="tx_entity_domain_model_entity">
@@ -74,6 +74,12 @@
 			</trans-unit>
 			<trans-unit id="tx_entity_domain_model_entity.twitter_card" resname="tx_entity_domain_model_entity.twitter_card">
 				<source>Twitter Card</source>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.related" resname="tx_entity_domain_model_entity.related">
+				<source>Related</source>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.parent" resname="tx_entity_domain_model_entity.parent">
+				<source>Parent</source>
 			</trans-unit>
 		</body>
 	</file>

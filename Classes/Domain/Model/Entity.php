@@ -210,7 +210,12 @@ class Entity extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	protected $related = null;
 
-
+	/**
+	 * parent
+	 *
+	 * @var \Ps\Entity\Domain\Model\Entity
+	 */
+	protected $parent = null;
 
 	/**
 	 * __construct
@@ -752,6 +757,25 @@ class Entity extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setRelated(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $related): void {
 		$this->related = $related;
+	}
+
+	/**
+	 * Returns the parent
+	 *
+	 * @return \Ps\Entity\Domain\Model\Entity $parent
+	 */
+	public function getParent() {
+		return $this->parent;
+	}
+
+	/**
+	 * Sets the parent
+	 *
+	 * @param \Ps\Entity\Domain\Model\Entity $parent
+	 * @return void
+	 */
+	public function setParent(\Ps\Entity\Domain\Model\Entity $parent) {
+		$this->parent = $parent;
 	}
 
 	/**

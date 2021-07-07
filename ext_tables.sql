@@ -2,7 +2,7 @@
 # Extend SysCategory
 #
 CREATE TABLE sys_category (
-	tx_entity_page int(11) DEFAULT '0' NOT NULL,
+	tx_entity_page int(11) DEFAULT '0' NOT NULL
 );
 
 CREATE TABLE tx_entity_domain_model_entity (
@@ -32,8 +32,8 @@ CREATE TABLE tx_entity_domain_model_entity (
 	twitter_description text,
 	twitter_image int(11) unsigned NOT NULL default '0',
 	twitter_card varchar(50) DEFAULT '' NOT NULL,
-	related int(11) unsigned DEFAULT '0' NOT NULL
-
+	related int(11) unsigned DEFAULT '0' NOT NULL,
+	parent int(11) unsigned DEFAULT '0'
 );
 
 CREATE TABLE tx_entity_entity_entity_mm (

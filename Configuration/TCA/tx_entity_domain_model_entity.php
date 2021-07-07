@@ -278,8 +278,6 @@ return [
 					],
 					$GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
 				),
-
-
 		],
 		'files' => [
 			'exclude' => true,
@@ -362,7 +360,6 @@ return [
 				'rows' => 15,
 				'eval' => 'trim',
 			],
-
 		],
 		'long_description' => [
 			'exclude' => true,
@@ -573,7 +570,6 @@ return [
 				],
 				'png, jpg'
 			),
-
 		],
 		'twitter_title' => [
 			'exclude' => true,
@@ -651,7 +647,6 @@ return [
 				],
 				'jpg, png'
 			),
-
 		],
 		'twitter_card' => [
 			'exclude' => true,

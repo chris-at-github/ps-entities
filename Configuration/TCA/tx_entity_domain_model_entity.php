@@ -677,6 +677,7 @@ return [
 		],
 		'parent' => [
 			'exclude' => true,
+			'l10n_mode' => 'exclude',
 			'label' => 'LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.parent',
 			'config' => [
 				'type' => 'group',

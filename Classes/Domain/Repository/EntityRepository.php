@@ -43,6 +43,10 @@ class EntityRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 			$matches['masterCategory'] = $query->equals('masterCategory', $options['masterCategory']);
 		}
 
+		if(isset($options['parent']) === true) {
+			$matches['parent'] = $query->equals('parent', $options['parent']);
+		}
+
 		return $matches;
 	}
 

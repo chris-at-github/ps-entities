@@ -48,6 +48,16 @@ class EntityRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 			$matches['parent'] = $query->equals('parent', $options['parent']);
 		}
 
+		if(isset($options['categories']) === true) {
+			$or = [];
+
+			foreach($options['categories'] as $category) {
+				$or[] = $query->contains('categories', (int) $category);
+			}
+
+			$matches['categories'] = $query->logicalOr($or);
+		}
+
 		return $matches;
 	}
 

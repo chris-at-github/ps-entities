@@ -63,6 +63,14 @@ class EntityController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 	protected function getDemand($overwrite = []) {
 		$options = [];
 
+		if(empty($overwrite['categories']) === false) {
+			$options['categories'] = $overwrite['categories'];
+		}
+
+		if(empty($options['categories']) === false && gettype($options['categories']) === 'string') {
+			$options['categories'] = GeneralUtility::intExplode(',', $options['categories'], true);
+		}
+
 		return $options;
 	}
 

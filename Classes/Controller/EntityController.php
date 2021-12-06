@@ -90,6 +90,9 @@ class EntityController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 	 */
 	public function showAction($entity) {
 
+		// Content Element Data
+		$this->view->assign('record', $this->configurationManager->getContentObject()->data);
+
 		// Zwischenspeichern fuer die weitere Verarbeitung
 		$this->setEntity($entity);
 

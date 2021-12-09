@@ -796,17 +796,31 @@ class Entity extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * @return string
 	 */
-	public function getLink($t = false) {
+	public function getLink() {
 		$link = '';
 
 		if($this->getMasterCategory() !== null && $this->getMasterCategory()->getPage() !== null) {
+			$link = $this->getCategoryLink($this->getMasterCategory());
+		}
+
+		return $link;
+	}
+
+	/**
+	 * @param \TYPO3\CMS\Extbase\Domain\Model\Category $category
+	 * @return string
+	 */
+	public function getCategoryLink(\TYPO3\CMS\Extbase\Domain\Model\Category $category) {
+		$link = '';
+
+		if($category->getPage() !== null) {
 
 			/** @var UriBuilder $uriBuilder */
 			$uriBuilder = $this->objectManager->get(UriBuilder::class);
 			$arguments = $this->getLinkArguments();
 			$link = $uriBuilder
 				->reset()
-				->setTargetPageUid($this->getMasterCategory()->getPage()->getUid())
+				->setTargetPageUid($category->getPage()->getUid())
 				->uriFor($arguments['action'], $arguments['arguments'], $arguments['controller'], $arguments['extension'], $arguments['plugin']);
 		}
 

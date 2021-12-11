@@ -54,6 +54,14 @@ class HrefLangTagEventListener {
 	}
 
 	/**
+	 * @param int $uid
+	 * @return Entity
+	 */
+	protected function getEntity($uid) {
+		return GeneralUtility::makeInstance(EntityRepository::class)->findByUid($uid);
+	}
+
+	/**
 	 * @param ModifyHrefLangTagsEvent $event
 	 */
 	public function __invoke(ModifyHrefLangTagsEvent $event): void {
@@ -62,22 +70,34 @@ class HrefLangTagEventListener {
 		if(empty($uid) === false) {
 
 			/** @var Entity $entity */
-			$entity = GeneralUtility::makeInstance(EntityRepository::class)->findByUid($uid);
+			$entity = $this->getEntity($uid);
+			$hrefs = [];
 
-			if(empty($entity->getCanonicalUrl()) === false && $entity->getNoIndex() === false) {
-
+			// Verarbeitung nur starten wenn kein Canonical hinterlegt ist -> ansonsten sollte das Hreflang zurueckgesetzt
+			// werden
+			if(empty($entity->getCanonicalUrl()) === true && $entity->getNoIndex() === false) {
 				$xDefault = '';
-				$hrefs = [];
 				$languages = $this->languageMenuProcessor->process($this->contentObject, [], [], []);
 
 				foreach($languages['languagemenu'] as $language) {
 					if($language['available'] === 1) {
-						$href = $this->canonicalTagService->getUrl($entity->getCanonicalUrl(), $language['languageId']);
+
+						$uriOptions = [
+							'language' => $language['languageId'],
+							'absoluteUri' => true
+						];
+
+						if($entity->getMasterCategory() !== null && $entity->getMasterCategory()->getPage() !== null) {
+							$uriOptions['category'] = $entity->getMasterCategory();
+						}
+
+						$href = $entity->getUri($uriOptions);
 
 						if(empty($href) === false) {
 							$hrefs[$language['hreflang']] = $href;
 
-							if($language['active'] === 1) {
+							// Hauptsprache (ID: 0) -> ist nicht ganz sauber, aber vermutlich zu 90% richtig
+							if($language['languageId'] === 0) {
 								$xDefault = $href;
 							}
 						}
@@ -87,9 +107,20 @@ class HrefLangTagEventListener {
 				if(count($hrefs) > 1 && empty($xDefault) === false) {
 					$hrefs['x-default'] = $xDefault;
 				}
-
-				$event->setHrefLangs($hrefs);
 			}
+
+			// Href komplett zuruecksetzen wenn
+			// 	1) aktuell aufgerufene URL nicht vorkommt
+			//  2) ein Canonical gesetzt ist
+			// Leeres Array fuehrt dazu das kein Hreflang-Tag erstellt wird
+			if(
+				in_array(GeneralUtility::getIndpEnv('TYPO3_REQUEST_URL'), $hrefs) === false ||
+				empty($entity->getCanonicalUrl()) === false
+			) {
+				$hrefs = [];
+			}
+
+			$event->setHrefLangs($hrefs);
 		}
 	}
 }

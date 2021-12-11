@@ -800,30 +800,38 @@ class Entity extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		$link = '';
 
 		if($this->getMasterCategory() !== null && $this->getMasterCategory()->getPage() !== null) {
-			$link = $this->getCategoryLink($this->getMasterCategory());
+			$link = $this->getUri(['category' => $this->getMasterCategory()]);
 		}
 
 		return $link;
 	}
 
 	/**
-	 * @param \TYPO3\CMS\Extbase\Domain\Model\Category $category
+	 * @param array $options
 	 * @return string
 	 */
-	public function getCategoryLink(\TYPO3\CMS\Extbase\Domain\Model\Category $category) {
-		$link = '';
+	public function getUri($options = []) {
 
-		if($category->getPage() !== null) {
+		/** @var UriBuilder $uriBuilder */
+		$uriBuilder = $this->objectManager->get(UriBuilder::class);
+		$arguments = $this->getLinkArguments();
 
-			/** @var UriBuilder $uriBuilder */
-			$uriBuilder = $this->objectManager->get(UriBuilder::class);
-			$arguments = $this->getLinkArguments();
-			$link = $uriBuilder
-				->reset()
-				->setTargetPageUid($category->getPage()->getUid())
-				->uriFor($arguments['action'], $arguments['arguments'], $arguments['controller'], $arguments['extension'], $arguments['plugin']);
+		if(
+			isset($options['category']) === true &&
+			$options['category'] instanceof \Ps\Entity\Domain\Model\Category &&
+			$options['category']->getPage() !== null
+		) {
+			$uriBuilder->setTargetPageUid($options['category']->getPage()->getUid());
 		}
 
-		return $link;
+		if(isset($options['language']) === true) {
+			$uriBuilder->setArguments(['L' => (int) $options['language']]);
+		}
+
+		if(isset($options['absoluteUri']) === true) {
+			$uriBuilder->setCreateAbsoluteUri(true);
+		}
+
+		return $uriBuilder->uriFor($arguments['action'], $arguments['arguments'], $arguments['controller'], $arguments['extension'], $arguments['plugin']);
 	}
 }

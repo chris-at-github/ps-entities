@@ -78,7 +78,7 @@ class EntityViewHelper extends AbstractViewHelper {
 		}
 
 		if($category instanceof Category) {
-			$uri = $this->arguments['entity']->getCategoryLink($category);
+			$uri = $this->arguments['entity']->getUri(['category' => $category]);
 		}
 
 		return $uri;

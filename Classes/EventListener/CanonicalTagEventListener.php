@@ -53,7 +53,15 @@ class CanonicalTagEventListener {
 
 				// zur Sicherheit nochmal die Canonical setzen (falls das Entity unter mehreren URLs angezeigt wird
 				} else {
-					$canonical = $entity->getLink();
+					$uriOptions = [
+						'absoluteUri' => true
+					];
+
+					if($entity->getMasterCategory() !== null && $entity->getMasterCategory()->getPage() !== null) {
+						$uriOptions['category'] = $entity->getMasterCategory();
+					}
+
+					$canonical = $entity->getUri($uriOptions);
 				}
 
 				if(empty($canonical) === false) {

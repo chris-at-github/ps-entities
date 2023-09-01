@@ -35,7 +35,7 @@ plugin.tx_seo {
 		xmlSitemap {
 			sitemaps {
 				entityFrontend {
-					provider = TYPO3\CMS\Seo\XmlSitemap\RecordsXmlSitemapDataProvider
+					provider = Ps\Entity\XmlSitemap\RecordsXmlSitemapDataProvider
 					config {
 						table = tx_entity_domain_model_entity
 						sortField = sorting

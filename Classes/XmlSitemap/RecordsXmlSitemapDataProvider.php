@@ -4,16 +4,22 @@ declare(strict_types=1);
 
 namespace Ps\Entity\XmlSitemap;
 
+use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\QueryBuilder;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
+use TYPO3\CMS\Seo\XmlSitemap\Exception\MissingConfigurationException;
 
 /**
  * XmlSiteDataProvider will provide information for the XML sitemap for a specific database table
  * @internal this class is not part of TYPO3's Core API.
  */
-class RecordsXmlSitemapDataProvider extends \TYPO3\CMS\Seo\XmlSitemap\RecordsXmlSitemapDataProvider {
+
+// auf Version 12 verschoben -> extends \TYPO3\CMS\Seo\XmlSitemap\RecordsXmlSitemapDataProvider fuehrt zu einem Fehler
+//class RecordsXmlSitemapDataProvider extends \TYPO3\CMS\Seo\XmlSitemap\RecordsXmlSitemapDataProvider {
+class RecordsXmlSitemapDataProvider {
 
 	/**
 	 * @var array

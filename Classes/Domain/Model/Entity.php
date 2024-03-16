@@ -331,26 +331,6 @@ class Entity extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	}
 
 	/**
-	 * Adds a FileReference
-	 *
-	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $medium
-	 * @return void
-	 */
-	public function addMedium(\TYPO3\CMS\Extbase\Domain\Model\FileReference $medium) {
-		$this->media->attach($medium);
-	}
-
-	/**
-	 * Removes a FileReference
-	 *
-	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $mediumToRemove The FileReference to be removed
-	 * @return void
-	 */
-	public function removeMedium(\TYPO3\CMS\Extbase\Domain\Model\FileReference $mediumToRemove) {
-		$this->media->detach($mediumToRemove);
-	}
-
-	/**
 	 * Returns the media
 	 *
 	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference> $media

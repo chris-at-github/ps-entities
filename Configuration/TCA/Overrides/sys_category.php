@@ -1,10 +1,10 @@
 <?php
 
-call_user_func(function($_EXTKEY) {
+(function() {
 
-	// ---------------------------------------------------------------------------------------------------------------------
-	// Weitere Felder in SysCategory
-	$tmpEntitySysCategoryColumns = [
+	// -------------------------------------------------------------------------------------------------------------------
+	// Weitere Felder in Categories
+	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('sys_category', [
 		'tx_entity_page' => [
 			'exclude' => true,
 			'label' => 'LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_sys_category.page',
@@ -17,9 +17,7 @@ call_user_func(function($_EXTKEY) {
 				'size' => 1,
 			]
 		],
-	];
+	]);
 
-	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('sys_category', $tmpEntitySysCategoryColumns);
-	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes('sys_category', 'tx_entity_page', '', 'after:tx_xo_link');
-
-}, 'xo');
+	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes('sys_category', 'tx_entity_page', '', 'after:tx_foundation_link');
+})();

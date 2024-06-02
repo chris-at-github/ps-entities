@@ -54,6 +54,9 @@
 			<trans-unit id="tx_entity_domain_model_entity.master_category" resname="tx_entity_domain_model_entity.master_category">
 				<source>Master Category</source>
 			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.categories">
+				<source>Categories</source>
+			</trans-unit>
 			<trans-unit id="tx_entity_domain_model_entity.image" resname="tx_entity_domain_model_entity.image">
 				<source>Image</source>
 			</trans-unit>

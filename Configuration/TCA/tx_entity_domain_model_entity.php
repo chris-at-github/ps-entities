@@ -1,6 +1,6 @@
 <?php
 
-$extensionConfiguration = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class)->get('entity');
+//$extensionConfiguration = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class)->get('entity');
 
 return [
 	'ctrl' => [
@@ -25,10 +25,80 @@ return [
 			'ignorePageTypeRestriction' => true,
 		],
 		'searchFields' => 'title, subtitle, slug, meta_description, short_description, long_description, teaser, canonical_url, seo_title, og_title, og_description, twitter_title, twitter_description',
-		'iconfile' => 'EXT:ps14_foundation/Resources/Public/Icons/entity-module.svg',
+		'iconfile' => 'EXT:entity/Resources/Public/Icons/entity-module.svg',
+	],
+	'palettes' => [
+		'title' => [
+			'showitem' => 'title, --linebreak--, subtitle'
+		],
+		'description' => [
+			'showitem' => 'short_description, --linebreak--, long_description,'
+		],
+		'media' => [
+			'showitem' => 'image, --linebreak--, media,'
+		],
+		'files' => [
+			'showitem' => 'files,'
+		],
+		'relation' => [
+			'showitem' => 'related,'
+		],
+		'seo_general' => [
+			'showitem' => 'seo_title, --linebreak--, meta_description, --linebreak--, slug,'
+		],
+		'seo_robots' => [
+			'showitem' => 'no_index, no_follow,'
+		],
+		'seo_canonical' => [
+			'showitem' => 'canonical_url,'
+		],
+		'seo_sitemap' => [
+			'showitem' => 'sitemap_change_frequency, sitemap_priority,'
+		],
+		'socialmedia_og' => [
+			'showitem' => 'og_title, --linebreak--, og_description, --linebreak--, og_image,'
+		],
+		'socialmedia_twitter' => [
+			'showitem' => 'twitter_title, --linebreak--, twitter_description, --linebreak--, twitter_image, --linebreak--, twitter_card,'
+		],
+		'language' => [
+			'showitem' => 'sys_language_uid, l10n_parent,'
+		],
+		'access' => [
+			'showitem' => 'hidden, --linebreak--, starttime, endtime,'
+		],
+		'category' => [
+			'showitem' => 'master_category, --linebreak--, categories,'
+		]
 	],
 	'types' => [
-		'1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, tx_extbase_type, title, subtitle, slug, master_category, image, media, files, meta_description, short_description, long_description, teaser, canonical_url, no_index, no_follow, sitemap_change_frequency, sitemap_priority, seo_title, og_title, og_description, og_image, twitter_title, twitter_description, twitter_image, twitter_card, related --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
+		'1' => [
+			'showitem' => '
+			--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+				--palette--;;title,
+				--palette--;;description,
+				--palette--;;media,
+				--palette--;;files,
+			--div--;LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.tab.seo,
+				--palette--;LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.palette.seo_general;seo_general,
+				--palette--;LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.palette.seo_robots;seo_robots,
+				--palette--;LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.palette.seo_canonical;seo_canonical,
+				--palette--;LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.palette.seo_sitemap;seo_sitemap,
+			--div--;LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.tab.socialmedia,
+				--palette--;LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.palette.socialmedia_og;socialmedia_og,
+				--palette--;LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.palette.socialmedia_twitter;socialmedia_twitter,
+			--div--;LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.tab.relation,
+				--palette--;;relation,
+			--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
+				--palette--;;language,
+			--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
+				--palette--;;access,
+			--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,
+				tx_extbase_type,
+			--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:categories,
+				--palette--;;category,
+			'
+		],
 	],
 	'columns' => [
 		'sys_language_uid' => [
@@ -119,7 +189,10 @@ return [
 				'type' => 'select',
 				'renderType' => 'selectSingle',
 				'items' => [
-					['',''],
+					[
+						'value' => '',
+						'label' => ''
+					],
 				],
 				'default' => '',
 				'size' => 1,
@@ -157,9 +230,6 @@ return [
 						'/' => '',
 					],
 				],
-//				'appearance' => [
-//					'prefix' => \Vendor\Extension\UserFunctions\FormEngine\SlugPrefix::class . '->getPrefix'
-//				],
 				'fallbackCharacter' => '-',
 				'eval' => 'uniqueInSite',
 				'default' => ''
@@ -175,155 +245,69 @@ return [
 				'items' => [
 					['', 0],
 				],
+				'itemsProcFunc' => Ps14\Foundation\Service\TcaService::class . '->getCategoriesByIdentifier',
+				'itemsProcConfig' => [
+					'identifier' => 'entity-product-main',
+					'filter' => true,
+				],
 				'size' => 1,
 				'maxitems' => 1,
 				'foreign_table' => 'sys_category',
-//				'foreign_table_where' => ' AND sys_category.sys_language_uid IN (-1, 0) and sys_category.parent = ' . (int) $extensionConfiguration['masterCategory'] . ' ORDER BY sys_category.sorting ASC',
 				'foreign_table_where' => ' AND sys_category.sys_language_uid IN (-1, 0) ORDER BY sys_category.sorting ASC',
 			],
+		],
+		'categories' => [
+			'exclude' => true,
+			'label' => 'LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.categories',
+			'config' => [
+				'type' => 'category'
+			]
 		],
 		'image' => [
 			'exclude' => true,
 			'label' => 'LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.image',
-			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
-				'image',
-				[
-					'appearance' => [
-						'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference',
-						'collapseAll' => 1,
-					],
-					'foreign_match_fields' => [
-						'fieldname' => 'image',
-						'tablenames' => 'tx_entity_domain_model_entity',
-						'table_local' => 'sys_file',
-					],
-					'maxitems' => 1,
-					'overrideChildTca' => [
-						'types' => [
-							'0' => [
-								'showitem' => '
-									--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-									--palette--;;filePalette'
-							],
-							\TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
-								'showitem' => '
-									--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-									--palette--;;filePalette'
-							],
-						],
-					],
+			'config' => [
+				'type' => 'file',
+				'maxitems' => 1,
+				'appearance' => [
+					'collapseAll' => true,
+					'fileUploadAllowed' => false,
 				],
-
-				$GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
-			),
+				'behaviour' => [
+					'allowLanguageSynchronization' => true
+				],
+				'allowed' => 'common-image-types',
+			],
 		],
 		'media' => [
 			'exclude' => true,
 			'label' => 'LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.media',
-			'config' =>
-				\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
-					'media',
-					[
-						'appearance' => [
-							'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference',
-							'collapseAll' => 1,
-						],
-						'overrideChildTca' => [
-							'types' => [
-								'0' => [
-									'showitem' => '
-										--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-										--palette--;;filePalette'
-								],
-								\TYPO3\CMS\Core\Resource\File::FILETYPE_TEXT => [
-									'showitem' => '
-										--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-										--palette--;;filePalette'
-								],
-								\TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
-									'showitem' => '
-										--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-										--palette--;;filePalette'
-								],
-								\TYPO3\CMS\Core\Resource\File::FILETYPE_AUDIO => [
-									'showitem' => '
-										--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-										--palette--;;filePalette'
-								],
-								\TYPO3\CMS\Core\Resource\File::FILETYPE_VIDEO => [
-									'showitem' => '
-										--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-										--palette--;;filePalette'
-								],
-								\TYPO3\CMS\Core\Resource\File::FILETYPE_APPLICATION => [
-									'showitem' => '
-										--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-										--palette--;;filePalette'
-								]
-							],
-						],
-						'foreign_match_fields' => [
-							'fieldname' => 'media',
-							'tablenames' => 'tx_entity_domain_model_entity',
-							'table_local' => 'sys_file',
-						],
-						'maxitems' => 99
-					],
-				),
+			'config' => [
+				'type' => 'file',
+				'maxitems' => 99,
+				'appearance' => [
+					'collapseAll' => true,
+					'fileUploadAllowed' => false,
+				],
+				'behaviour' => [
+					'allowLanguageSynchronization' => true
+				],
+			],
 		],
 		'files' => [
 			'exclude' => true,
 			'label' => 'LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.files',
-			'config' =>
-				\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
-					'files',
-					[
-						'appearance' => [
-							'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:media.addFileReference',
-							'collapseAll' => 1,
-						],
-						'overrideChildTca' => [
-							'types' => [
-								'0' => [
-									'showitem' => '
-										--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.basicoverlayPalette;basicoverlayPalette,
-										--palette--;;filePalette'
-								],
-								\TYPO3\CMS\Core\Resource\File::FILETYPE_TEXT => [
-									'showitem' => '
-										--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.basicoverlayPalette;basicoverlayPalette,
-										--palette--;;filePalette'
-								],
-								\TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
-									'showitem' => '
-  									--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.basicoverlayPalette;basicoverlayPalette,
-										--palette--;;filePalette'
-								],
-								\TYPO3\CMS\Core\Resource\File::FILETYPE_AUDIO => [
-									'showitem' => '
-       							--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.basicoverlayPalette;basicoverlayPalette,
-										--palette--;;filePalette'
-								],
-								\TYPO3\CMS\Core\Resource\File::FILETYPE_VIDEO => [
-									'showitem' => '
-       							--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.basicoverlayPalette;basicoverlayPalette,
-										--palette--;;filePalette'
-								],
-								\TYPO3\CMS\Core\Resource\File::FILETYPE_APPLICATION => [
-									'showitem' => '
-       							--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.basicoverlayPalette;basicoverlayPalette,
-										--palette--;;filePalette'
-								]
-							],
-						],
-						'foreign_match_fields' => [
-							'fieldname' => 'files',
-							'tablenames' => 'tx_entity_domain_model_entity',
-							'table_local' => 'sys_file',
-						],
-						'maxitems' => 99
-					]
-				),
+			'config' => [
+				'type' => 'file',
+				'maxitems' => 99,
+				'appearance' => [
+					'collapseAll' => true,
+					'fileUploadAllowed' => false,
+				],
+				'behaviour' => [
+					'allowLanguageSynchronization' => true
+				],
+			],
 		],
 		'meta_description' => [
 			'exclude' => true,
@@ -342,7 +326,7 @@ return [
 			'config' => [
 				'type' => 'text',
 				'enableRichtext' => true,
-				'richtextConfiguration' => 'xoMinimal',
+				'richtextConfiguration' => 'ps14Minimal',
 				'fieldControl' => [
 					'fullScreenRichtext' => [
 						'disabled' => false,
@@ -359,7 +343,7 @@ return [
 			'config' => [
 				'type' => 'text',
 				'enableRichtext' => true,
-				'richtextConfiguration' => 'xoDefault',
+				'richtextConfiguration' => 'ps14Default',
 				'fieldControl' => [
 					'fullScreenRichtext' => [
 						'disabled' => false,
@@ -376,7 +360,7 @@ return [
 			'config' => [
 				'type' => 'text',
 				'enableRichtext' => true,
-				'richtextConfiguration' => 'xoMinimal',
+				'richtextConfiguration' => 'ps14Minimal',
 				'fieldControl' => [
 					'fullScreenRichtext' => [
 						'disabled' => false,
@@ -392,20 +376,13 @@ return [
 			'l10n_mode' => 'exclude',
 			'label' => 'LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.canonical_url',
 			'config' => [
-				'type' => 'input',
-				'renderType' => 'inputLink',
-				'size' => 40,
-				'max' => 1024,
-				'fieldControl' => [
-					'linkPopup' => [
-						'options' => [
-							'title' => 'LLL:EXT:seo/Resources/Private/Language/locallang_tca.xlf:pages.canonical_link',
-							'blindLinkFields' => 'class,target,title',
-							'blindLinkOptions' => 'mail,folder,file,telephone'
-						],
-					],
+				'type' => 'link',
+				'allowedTypes' => ['page', 'url', 'record'],
+				'size' => 50,
+				'appearance' => [
+					'browserTitle' => 'LLL:EXT:seo/Resources/Private/Language/locallang_tca.xlf:pages.canonical_link',
+					'allowedOptions' => ['params', 'rel'],
 				],
-				'softref' => 'typolink'
 			],
 		],
 		'no_index' => [
@@ -514,54 +491,29 @@ return [
 		'og_image' => [
 			'exclude' => true,
 			'label' => 'LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.og_image',
-			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
-				'og_image',
-				[
-					'appearance' => [
-						'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference',
-						'collapseAll' => 1
-					],
-					'overrideChildTca' => [
-						'types' => [
-							'0' => [
-								'showitem' => '
-									--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-									--palette--;;filePalette'
-							],
-							\TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
-								'showitem' => '
-									--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-									--palette--;;filePalette'
-							],
-						],
-						'columns' => [
-							'crop' => [
-								'config' => [
-									'cropVariants' => [
+			'config' => [
+				'type' => 'file',
+				'allowed' => 'common-image-types',
+				'behaviour' => [
+					'allowLanguageSynchronization' => true,
+				],
+				'overrideChildTca' => [
+					'columns' => [
+						'crop' => [
+							'config' => [
+								'cropVariants' => \Ps14\Site\Service\TcaService::getCropVariants(
+									[
 										'default' => [
-											'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.crop_variant.default',
-											'allowedAspectRatios' => [
-												'191_1' => [
-													'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.191_1',
-													'value' => 1.91 / 1
-												],
-											],
-											'selectedRatio' => '191_1',
+											'allowedAspectRatios' => ['191_1'],
+											'selectedRatio' => '191_1'
 										],
 									]
-								]
+								),
 							]
-						]
+						],
 					],
-					'foreign_match_fields' => [
-						'fieldname' => 'og_image',
-						'tablenames' => 'tx_entity_domain_model_entity',
-						'table_local' => 'sys_file',
-					],
-					'maxitems' => 1
 				],
-				'png, jpg'
-			),
+			],
 		],
 		'twitter_title' => [
 			'exclude' => true,
@@ -587,58 +539,29 @@ return [
 		'twitter_image' => [
 			'exclude' => true,
 			'label' => 'LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.twitter_image',
-			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
-				'twitter_image',
-				[
-					'appearance' => [
-						'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference',
-						'collapseAll' => 1,
-					],
-					'overrideChildTca' => [
-						'types' => [
-							'0' => [
-								'showitem' => '
-									--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-									--palette--;;filePalette'
-							],
-							\TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
-								'showitem' => '
-									--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-									--palette--;;filePalette'
-							],
-						],
-						'columns' => [
-							'crop' => [
-								'config' => [
-									'cropVariants' => [
+			'config' => [
+				'type' => 'file',
+				'allowed' => 'common-image-types',
+				'behaviour' => [
+					'allowLanguageSynchronization' => true,
+				],
+				'overrideChildTca' => [
+					'columns' => [
+						'crop' => [
+							'config' => [
+								'cropVariants' => \Ps14\Site\Service\TcaService::getCropVariants(
+									[
 										'default' => [
-											'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.crop_variant.default',
-											'allowedAspectRatios' => [
-												'191_1' => [
-													'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.191_1',
-													'value' => 1.91 / 1
-												],
-												'1_1' => [
-													'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.1_1',
-													'value' => 1 / 1
-												],
-											],
-											'selectedRatio' => '191_1',
+											'allowedAspectRatios' => ['191_1', '1_1'],
+											'selectedRatio' => '191_1'
 										],
 									]
-								]
+								),
 							]
-						]
+						],
 					],
-					'foreign_match_fields' => [
-						'fieldname' => 'twitter_image',
-						'tablenames' => 'tx_entity_domain_model_entity',
-						'table_local' => 'sys_file',
-					],
-					'maxitems' => 1
 				],
-				'jpg, png'
-			),
+			],
 		],
 		'twitter_card' => [
 			'exclude' => true,

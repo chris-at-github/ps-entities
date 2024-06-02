@@ -82,7 +82,7 @@ class EntityRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 	 * @return QueryResultInterface
 	 * @throws InvalidQueryException
 	 */
-	public function findAll($demand = []) {
+	public function findAllByOption($demand = []) {
 		$query = $this->createQuery();
 		if(empty($matches = $this->getMatches($query, $demand)) === false) {
 			$query->matching($query->logicalAnd($matches));
@@ -96,7 +96,7 @@ class EntityRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 	 * @return object
 	 * @throws InvalidQueryException
 	 */
-	public function find($options = []) {
+	public function findByOption($options = []) {
 		return $this->findAll($options)->getFirst();
 	}
 }

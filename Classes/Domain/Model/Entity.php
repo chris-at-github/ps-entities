@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace Ps\Entity\Domain\Model;
 
-
 use TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use TYPO3\CMS\Extbase\Annotation\Inject;

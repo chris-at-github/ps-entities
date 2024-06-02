@@ -64,30 +64,30 @@ class RecordsXmlSitemapDataProvider {
 	 * @return array
 	 */
 	protected function defineUrl(array $data): array {
-		if(empty($data['data']['master_category']) === true) {
-			return $data;
-		}
-
-		$pageId = $this->getMasterCategoryPageUid($data['data']['master_category']);
-		$additionalParams = [];
-
-		$additionalParams = $this->getUrlFieldParameterMap($additionalParams, $data['data']);
-		$additionalParams = $this->getUrlAdditionalParams($additionalParams);
-
-		$additionalParamsString = http_build_query(
-			$additionalParams,
-			'',
-			'&',
-			PHP_QUERY_RFC3986
-		);
-
-		$typoLinkConfig = [
-			'parameter' => $pageId,
-			'additionalParams' => $additionalParamsString ? '&' . $additionalParamsString : '',
-			'forceAbsoluteUrl' => 1,
-		];
-
-		$data['loc'] = $this->cObj->typoLink_URL($typoLinkConfig);
+//		if(empty($data['data']['master_category']) === true) {
+//			return $data;
+//		}
+//
+//		$pageId = $this->getMasterCategoryPageUid($data['data']['master_category']);
+//		$additionalParams = [];
+//
+//		$additionalParams = $this->getUrlFieldParameterMap($additionalParams, $data['data']);
+//		$additionalParams = $this->getUrlAdditionalParams($additionalParams);
+//
+//		$additionalParamsString = http_build_query(
+//			$additionalParams,
+//			'',
+//			'&',
+//			PHP_QUERY_RFC3986
+//		);
+//
+//		$typoLinkConfig = [
+//			'parameter' => $pageId,
+//			'additionalParams' => $additionalParamsString ? '&' . $additionalParamsString : '',
+//			'forceAbsoluteUrl' => 1,
+//		];
+//
+//		$data['loc'] = $this->cObj->typoLink_URL($typoLinkConfig);
 
 		return $data;
 	}

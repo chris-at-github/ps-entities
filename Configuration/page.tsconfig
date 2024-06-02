@@ -1,0 +1,16 @@
+mod {
+	wizards.newContentElement.wizardItems.plugins {
+		elements {
+			frontend {
+				iconIdentifier = entity-module
+				title = LLL:EXT:entity/Resources/Private/Language/locallang_plugin.xlf:frontend.name
+				description = LLL:EXT:entity/Resources/Private/Language/locallang_plugin.xlf:frontend.description
+				tt_content_defValues {
+					CType = list
+					list_type = entity_frontend
+				}
+			}
+		}
+		show = *
+	}
+}

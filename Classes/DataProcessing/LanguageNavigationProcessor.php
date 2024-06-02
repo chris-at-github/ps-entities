@@ -30,54 +30,54 @@ class LanguageNavigationProcessor implements DataProcessorInterface {
 	 * @return array the processed data as key/value store
 	 */
 	public function process(ContentObjectRenderer $cObject, array $contentObjectConfiguration, array $processorConfiguration, array $processedData) {
-		if(isset($processedData['navigationLanguage']) === true) {
-
-			try {
-				$arguments = $this->getTypoScriptFrontendController()->getPageArguments()->getArguments();
-				$argumentPrefix = $processorConfiguration['argumentPrefix'];
-				$uid = (int) $arguments[$argumentPrefix][$processorConfiguration['uidArgument']];
-
-				if(empty($uid) === false) {
-
-					/** @var QueryBuilder $queryBuilder */
-					$queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tx_entity_domain_model_entity');
-
-					/** @var Site $site */
-					$site = GeneralUtility::makeInstance(SiteFinder::class)->getSiteByPageId((int) $this->getTypoScriptFrontendController()->id);
-
-					// Durchlaufe alle verfuegbaren Sprachen aus dem Language Menu
-					// Pruefe ob die eigentliche Seite uebersetzt ist
-					foreach($processedData['navigationLanguage'] as &$language) {
-
-						if($language['available'] === 1) {
-							$statement = $queryBuilder
-								->select('*')
-								->from('tx_entity_domain_model_entity')
-								->orWhere(
-									$queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($uid)),
-									$queryBuilder->expr()->eq('l10n_parent', $queryBuilder->createNamedParameter($uid))
-								)
-								->andWhere($queryBuilder->expr()->eq('sys_language_uid', $queryBuilder->createNamedParameter((int) $language['languageUid'])))
-								->execute();
-
-							// Wenn es einen Datensatz gibt wurde er in angegebene Sprache uebersetzt
-							if($statement->fetch() !== false) {
-								$language['link'] = $site->getRouter()->generateUri((int) $this->getTypoScriptFrontendController()->id, [
-									$argumentPrefix => $arguments[$argumentPrefix],
-									'_language' => (int) $language['languageUid']
-								])->getPath();
-
-								// deaktiviere den Sprachlink, auch wenn die Detailseite uebersetzt
-							} else {
-								$language['available'] = 0;
-							}
-						}
-					}
-				}
-
-			// es gibt nichts abzufangen -> wenn der Parameter nicht in der vorhanden ist fuege nichts dem Breadcrumb hinzu
-			} catch(\RuntimeException $exception) {}
-		}
+//		if(isset($processedData['navigationLanguage']) === true) {
+//
+//			try {
+//				$arguments = $this->getTypoScriptFrontendController()->getPageArguments()->getArguments();
+//				$argumentPrefix = $processorConfiguration['argumentPrefix'];
+//				$uid = (int) $arguments[$argumentPrefix][$processorConfiguration['uidArgument']];
+//
+//				if(empty($uid) === false) {
+//
+//					/** @var QueryBuilder $queryBuilder */
+//					$queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tx_entity_domain_model_entity');
+//
+//					/** @var Site $site */
+//					$site = GeneralUtility::makeInstance(SiteFinder::class)->getSiteByPageId((int) $this->getTypoScriptFrontendController()->id);
+//
+//					// Durchlaufe alle verfuegbaren Sprachen aus dem Language Menu
+//					// Pruefe ob die eigentliche Seite uebersetzt ist
+//					foreach($processedData['navigationLanguage'] as &$language) {
+//
+//						if($language['available'] === 1) {
+//							$statement = $queryBuilder
+//								->select('*')
+//								->from('tx_entity_domain_model_entity')
+//								->orWhere(
+//									$queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($uid)),
+//									$queryBuilder->expr()->eq('l10n_parent', $queryBuilder->createNamedParameter($uid))
+//								)
+//								->andWhere($queryBuilder->expr()->eq('sys_language_uid', $queryBuilder->createNamedParameter((int) $language['languageUid'])))
+//								->execute();
+//
+//							// Wenn es einen Datensatz gibt wurde er in angegebene Sprache uebersetzt
+//							if($statement->fetch() !== false) {
+//								$language['link'] = $site->getRouter()->generateUri((int) $this->getTypoScriptFrontendController()->id, [
+//									$argumentPrefix => $arguments[$argumentPrefix],
+//									'_language' => (int) $language['languageUid']
+//								])->getPath();
+//
+//								// deaktiviere den Sprachlink, auch wenn die Detailseite uebersetzt
+//							} else {
+//								$language['available'] = 0;
+//							}
+//						}
+//					}
+//				}
+//
+//			// es gibt nichts abzufangen -> wenn der Parameter nicht in der vorhanden ist fuege nichts dem Breadcrumb hinzu
+//			} catch(\RuntimeException $exception) {}
+//		}
 
 		return $processedData;
 	}

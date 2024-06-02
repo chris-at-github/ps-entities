@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2024-06-02T21:00:00Z" product-name="entity">
+		<header/>
+		<body>
+			<trans-unit id="frontend.title">
+				<source>Entity Frontend</source>
+			</trans-unit>
+			<trans-unit id="frontend.description">
+				<source>List and detailed view of entities</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

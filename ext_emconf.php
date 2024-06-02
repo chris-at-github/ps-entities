@@ -12,18 +12,18 @@
 
 $EM_CONF[$_EXTKEY] = [
 	'title' => 'Entity',
-	'description' => '',
+	'description' => 'Basic TYPO3 extension for managing entities',
 	'category' => 'plugin',
 	'author' => 'Christian Pschorr',
 	'author_email' => 'pschorr.christian@gmail.com',
-	'state' => 'alpha',
-	'createDirs' => '',
+	'state' => 'beta',
+	'uploadfolder' => 0,
 	'clearCacheOnLoad' => 0,
-	'version' => '1.0.0',
+	'version' => '2.0.0',
 	'constraints' => [
 		'depends' => [
-			'typo3' => '10.4.0-10.4.99',
-			'xo' => '1.0.0-1.99.99',
+			'typo3' => '12.0.0-12.4.99',
+			'ps14_foundation' => '2.0.0-2.99.99',
 		],
 		'conflicts' => [],
 		'suggests' => [],

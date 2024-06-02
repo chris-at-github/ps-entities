@@ -1,28 +1,32 @@
 {
-    "name": "ps/entity",
-    "type": "typo3-cms-extension",
-    "description": "",
-    "authors": [
-        {
-            "name": "Christian Pschorr",
-            "role": "Developer"
-        }
-    ],
-    "require": {
-        "typo3/cms-core": "^10.4"
-    },
-    "autoload": {
-        "psr-4": {
-            "Ps\\Entity\\": "Classes"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Ps\\Entity\\Tests\\": "Tests"
-        }
-    },
-    "replace": {
-        "ps/entity": "self.version",
-        "typo3-ter/entity": "self.version"
-    }
+	"name": "ps/entity",
+	"type": "typo3-cms-extension",
+	"description": "Basic TYPO3 extension for managing entities",
+	"keywords": [
+		"TYPO3",
+		"extension"
+	],
+	"homepage": "http://ps14.de/",
+	"require": {
+		"typo3/cms-core": "^12.4"
+	},
+	"suggest": {
+	},
+	"autoload": {
+		"psr-4": {
+			"Ps\\Entity\\": "Classes"
+		}
+	},
+	"license": "closed",
+	"authors": [
+		{
+			"name": "Christian Pschorr",
+			"email": "pschorr.christian@gmail.com"
+		}
+	],
+	"extra": {
+		"typo3/cms": {
+			"extension-key": "entity"
+		}
+	}
 }

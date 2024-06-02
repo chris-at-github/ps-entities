@@ -21,11 +21,11 @@ return [
 			'starttime' => 'starttime',
 			'endtime' => 'endtime',
 		],
-		'searchFields' => 'title,subtitle,slug,meta_description,short_description,long_description,teaser,canonical_url,seo_title,og_title,og_description,twitter_title,twitter_description',
-		'iconfile' => 'EXT:entity/Resources/Public/Icons/tx_entity_domain_model_entity.gif'
-	],
-	'interface' => [
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, tx_extbase_type, title, slug, master_category, image, media, files, meta_description, short_description, long_description, teaser, canonical_url, no_index, no_follow, sitemap_change_frequency, sitemap_priority, seo_title, og_title, og_description, og_image, twitter_title, twitter_description, twitter_image, twitter_card',
+		'security' => [
+			'ignorePageTypeRestriction' => true,
+		],
+		'searchFields' => 'title, subtitle, slug, meta_description, short_description, long_description, teaser, canonical_url, seo_title, og_title, og_description, twitter_title, twitter_description',
+		'iconfile' => 'EXT:ps14_foundation/Resources/Public/Icons/entity-module.svg',
 	],
 	'types' => [
 		'1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, tx_extbase_type, title, subtitle, slug, master_category, image, media, files, meta_description, short_description, long_description, teaser, canonical_url, no_index, no_follow, sitemap_change_frequency, sitemap_priority, seo_title, og_title, og_description, og_image, twitter_title, twitter_description, twitter_image, twitter_card, related --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
@@ -114,7 +114,7 @@ return [
 		'tx_extbase_type' => [
 			'exclude' => true,
 			'l10n_mode' => 'exclude',
-			'label'   => 'LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.tx_extbase_type',
+			'label' => 'LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.tx_extbase_type',
 			'config' => [
 				'type' => 'select',
 				'renderType' => 'selectSingle',
@@ -178,7 +178,8 @@ return [
 				'size' => 1,
 				'maxitems' => 1,
 				'foreign_table' => 'sys_category',
-				'foreign_table_where' => ' AND sys_category.sys_language_uid IN (-1, 0) and sys_category.parent = ' . (int) $extensionConfiguration['masterCategory'] . ' ORDER BY sys_category.sorting ASC',
+//				'foreign_table_where' => ' AND sys_category.sys_language_uid IN (-1, 0) and sys_category.parent = ' . (int) $extensionConfiguration['masterCategory'] . ' ORDER BY sys_category.sorting ASC',
+				'foreign_table_where' => ' AND sys_category.sys_language_uid IN (-1, 0) ORDER BY sys_category.sorting ASC',
 			],
 		],
 		'image' => [

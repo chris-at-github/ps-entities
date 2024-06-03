@@ -12,6 +12,6 @@ plugin.tx_entity {
 
 	persistence {
 		# cat=plugin.tx_entity//a; type=string; label=Default storage PID
-		storagePid = 50
+		storagePid =
 	}
 }

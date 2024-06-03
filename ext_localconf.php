@@ -17,17 +17,3 @@ if(defined('TYPO3') === false) {
 	);
 
 })();
-
-call_user_func(
-    function()
-    {
-
-
-
-        // wizards
-        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
-            ''
-        );
-		
-    }
-);

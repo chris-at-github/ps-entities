@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace Ps\Entity\Domain\Model;
 
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use TYPO3\CMS\Extbase\Annotation\Inject;
@@ -22,12 +23,6 @@ use TYPO3\CMS\Extbase\Annotation\Inject;
  * Entity
  */
 class Entity extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
-
-	/**
-	 * @Inject
-	 * @var \TYPO3\CMS\Extbase\Object\ObjectManagerInterface
-	 */
-	protected $objectManager;
 
 	/**
 	 * title
@@ -792,7 +787,7 @@ class Entity extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	public function getUri($options = []) {
 
 		/** @var UriBuilder $uriBuilder */
-		$uriBuilder = $this->objectManager->get(UriBuilder::class);
+		$uriBuilder = GeneralUtility::makeInstance(UriBuilder::class);
 		$arguments = $this->getLinkArguments();
 
 		if(
@@ -812,5 +807,6 @@ class Entity extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		}
 
 		return $uriBuilder->uriFor($arguments['action'], $arguments['arguments'], $arguments['controller'], $arguments['extension'], $arguments['plugin']);
+		return 'XXXXXXXXXXX';
 	}
 }

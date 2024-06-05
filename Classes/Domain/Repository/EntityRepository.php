@@ -71,7 +71,7 @@ class EntityRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 				$or[] = $query->contains('categories', (int) $category);
 			}
 
-			$matches['categories'] = $query->logicalOr($or);
+			$matches['categories'] = $query->logicalOr(...array_values($or));
 		}
 
 		return $matches;
@@ -85,7 +85,7 @@ class EntityRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 	public function findAllByOption($demand = []) {
 		$query = $this->createQuery();
 		if(empty($matches = $this->getMatches($query, $demand)) === false) {
-			$query->matching($query->logicalAnd($matches));
+			$query->matching($query->logicalAnd(...array_values($matches)));
 		}
 
 		return $query->execute();

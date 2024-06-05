@@ -55,24 +55,24 @@ class EntityController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 //	public function setEntity(?Entity $entity): void {
 //		$this->entity = $entity;
 //	}
-//
-//	/**
-//	 * @param array $overwrite
-//	 * @return array
-//	 */
-//	protected function getDemand($overwrite = []) {
-//		$options = [];
-//
-//		if(empty($overwrite['categories']) === false) {
-//			$options['categories'] = $overwrite['categories'];
-//		}
-//
-//		if(empty($options['categories']) === false && gettype($options['categories']) === 'string') {
-//			$options['categories'] = GeneralUtility::intExplode(',', $options['categories'], true);
-//		}
-//
-//		return $options;
-//	}
+
+	/**
+	 * @param array $overwrite
+	 * @return array
+	 */
+	protected function getDemand($overwrite = []) {
+		$options = [];
+
+		if(empty($overwrite['categories']) === false) {
+			$options['categories'] = $overwrite['categories'];
+		}
+
+		if(empty($options['categories']) === false && gettype($options['categories']) === 'string') {
+			$options['categories'] = GeneralUtility::intExplode(',', $options['categories'], true);
+		}
+
+		return $options;
+	}
 //
 //	/**
 //	 * action list

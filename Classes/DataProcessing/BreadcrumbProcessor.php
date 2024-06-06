@@ -30,33 +30,33 @@ class BreadcrumbProcessor implements DataProcessorInterface {
 	 * @return array the processed data as key/value store
 	 */
 	public function process(ContentObjectRenderer $cObject, array $contentObjectConfiguration, array $processorConfiguration, array $processedData) {
-//		if(isset($processedData['breadcrumb']) === true) {
-//
-//			try {
-//				$arguments = $this->getTypoScriptFrontendController()->getPageArguments()->getArguments();
-//				$uid = (int) ArrayUtility::getValueByPath($arguments, $processorConfiguration['uidArgument'], '|');
-//
-//				/** @var QueryBuilder $queryBuilder */
-//				$queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tx_entity_domain_model_entity');
-//				$statement = $queryBuilder
-//					->select($processorConfiguration['titleField'])
-//					->from('tx_entity_domain_model_entity')
-//					->orWhere(
-//						$queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($uid)),
-//						$queryBuilder->expr()->eq('l10n_parent', $queryBuilder->createNamedParameter($uid))
-//					)
-//					->andWhere($queryBuilder->expr()->eq('sys_language_uid', $queryBuilder->createNamedParameter($this->getTypoScriptFrontendController()->getLanguage()->getLanguageId())))
-//					->execute();
-//
-//				if(($row = $statement->fetch()) !== false) {
-//					$processedData['breadcrumb'][] = [
-//						'title' => $row[$processorConfiguration['titleField']]
-//					];
-//				}
-//
-//			// es gibt nichts abzufangen -> wenn der Parameter nicht in der vorhanden ist fuege nichts dem Breadcrumb hinzu
-//			} catch(\RuntimeException $exception) {}
-//		}
+		if(isset($processedData['navigation']) === true) {
+
+			try {
+				$arguments = $this->getTypoScriptFrontendController()->getPageArguments()->getArguments();
+				$uid = (int) ArrayUtility::getValueByPath($arguments, $processorConfiguration['uidArgument'], '|');
+
+				/** @var QueryBuilder $queryBuilder */
+				$queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tx_entity_domain_model_entity');
+				$statement = $queryBuilder
+					->select($processorConfiguration['titleField'])
+					->from('tx_entity_domain_model_entity')
+					->orWhere(
+						$queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($uid)),
+						$queryBuilder->expr()->eq('l10n_parent', $queryBuilder->createNamedParameter($uid))
+					)
+					->andWhere($queryBuilder->expr()->eq('sys_language_uid', $queryBuilder->createNamedParameter($this->getTypoScriptFrontendController()->getLanguage()->getLanguageId())))
+					->execute();
+
+				if(($row = $statement->fetch()) !== false) {
+					$processedData['navigation'][] = [
+						'title' => $row[$processorConfiguration['titleField']]
+					];
+				}
+
+			// es gibt nichts abzufangen -> wenn der Parameter nicht in der vorhanden ist fuege nichts dem Breadcrumb hinzu
+			} catch(\RuntimeException $exception) {}
+		}
 
 		return $processedData;
 	}

@@ -391,13 +391,16 @@ return [
 			'label' => 'LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.no_index',
 			'config' => [
 				'type' => 'check',
+				'renderType' => 'checkboxToggle',
 				'items' => [
-					'1' => [
-						'0' => 'LLL:EXT:lang/locallang_core.xlf:labels.enabled'
+					[
+						0 => '',
+						1 => '',
+//						'invertStateDisplay' => true
 					]
 				],
 				'default' => 0,
-			]
+			],
 		],
 		'no_follow' => [
 			'exclude' => true,
@@ -405,10 +408,13 @@ return [
 			'label' => 'LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.no_follow',
 			'config' => [
 				'type' => 'check',
+				'renderType' => 'checkboxToggle',
 				'items' => [
-					'1' => [
-						'0' => 'LLL:EXT:lang/locallang_core.xlf:labels.enabled'
-					]
+					[
+						0 => '',
+						1 => '',
+//						'invertStateDisplay' => true
+					],
 				],
 				'default' => 0,
 			]

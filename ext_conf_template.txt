@@ -1,2 +1,0 @@
-## cat=Category; type=int+; label=Parent category (UID) for master category; label=Child categories of master category are selectable
-#masterCategory =

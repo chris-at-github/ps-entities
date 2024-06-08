@@ -6,3 +6,14 @@ services:
 
   Ps\Entity\:
     resource: '../Classes/*'
+
+  # Alias für den ServerRequest
+  Psr\Http\Message\ServerRequestInterface:
+    alias: TYPO3\CMS\Core\Http\ServerRequest
+
+  # Definition des Dienstes
+  Ps\Entity\XmlSitemap\RecordsXmlSitemapDataProvider:
+    class: Ps\Entity\XmlSitemap\RecordsXmlSitemapDataProvider
+    arguments:
+      $key: 'entityProduct'
+      $request: '@Psr\Http\Message\ServerRequestInterface'

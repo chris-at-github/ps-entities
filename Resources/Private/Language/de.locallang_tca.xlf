@@ -150,6 +150,9 @@
 			<trans-unit id="tx_entity_domain_model_entity.parent" resname="tx_entity_domain_model_entity.parent">
 				<target>Parent</target>
 			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.token">
+				<target>Token</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

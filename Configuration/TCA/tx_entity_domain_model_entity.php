@@ -610,5 +610,15 @@ return [
 				'maxitems' => 1,
 			],
 		],
+		'token' => [
+			'exclude' => true,
+			'label' => 'LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.token',
+			'config' => [
+				'type' => 'input',
+				'size' => 40,
+				'eval' => 'trim',
+				'readOnly' => true,
+			],
+		],
 	],
 ];
